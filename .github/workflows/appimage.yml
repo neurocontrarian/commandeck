@@ -1,0 +1,78 @@
+name: Build AppImage (free)
+
+# Builds the PySide6/Qt Linux AppImage (free tier) for x86_64 and aarch64.
+# This is the sole Linux AppImage build (the legacy GTK build was retired).
+# Output assets: Commandeck-<ver>-<arch>.AppImage.
+#
+# Requires secret PUBLIC_RELEASE_TOKEN (PAT with public_repo scope on
+# neurocontrarian/commandeck) — same pattern as appimage-pro.yml.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag to attach AppImages to (e.g. v2.0.9)'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  free-qt:
+    name: Free Qt — ${{ matrix.arch }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        include:
+          - arch: x86_64
+            runner: ubuntu-22.04
+          - arch: aarch64
+            runner: ubuntu-22.04-arm
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libxcb-cursor0 \
+            libxcb-icccm4 \
+            libxcb-keysyms1 \
+            libxcb-shape0 \
+            libxcb-xkb1 \
+            libxkbcommon-x11-0 \
+            fuse \
+            squashfs-tools \
+            curl
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install PySide6 PyInstaller keyring
+
+      - name: Build PyInstaller onedir + AppImage
+        run: bash packaging/linux/build_appimage.sh --free
+        env:
+          COMMANDECK_PRO: '0'
+          COMMANDECK_VERSION: ${{ github.ref_name != 'main' && github.ref_name || inputs.tag_name }}
+
+      - name: Upload to public release (draft)
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.PUBLIC_RELEASE_TOKEN }}
+          repository: neurocontrarian/commandeck
+          tag_name: ${{ github.ref_name != 'main' && github.ref_name || inputs.tag_name }}
+          files: dist/*.AppImage
+          draft: true
+          fail_on_unmatched_files: true
