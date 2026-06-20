@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{#
+  Custom head additions for SEO and AI discoverability.
+  schema.org SoftwareApplication structured data — helps Google render Commandeck as an
+  app (price/OS) and helps AI assistants extract accurate facts about the product.
+#}
+{% block extrahead %}
+  {{ super() }}
+
+  {# Google Search Console ownership verification #}
+  <meta name="google-site-verification" content="N3b806AuJbI0C5L-7WzWkkYJ-CLtMSQhXr9Waamvksw" />
+
+  {# Open Graph / Twitter card — branded preview when a commandeck.app link is shared #}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Commandeck" />
+  <meta property="og:title" content="Commandeck — run shell & SSH commands from clickable buttons" />
+  <meta property="og:description" content="A desktop app for Linux, macOS and Windows that runs your shell and SSH commands from a grid of clickable buttons. Open-core, no cloud, no account." />
+  <meta property="og:image" content="https://commandeck.app/assets/main-window.png" />
+  <meta property="og:url" content="https://commandeck.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Commandeck — run shell & SSH commands from clickable buttons" />
+  <meta name="twitter:description" content="A desktop app that turns your shell and SSH commands into clickable buttons. Open-core, no cloud, no account." />
+  <meta name="twitter:image" content="https://commandeck.app/assets/main-window.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Commandeck",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, macOS, Windows",
+    "url": "https://commandeck.app",
+    "downloadUrl": "https://github.com/neurocontrarian/commandeck/releases/latest",
+    "softwareHelp": "https://commandeck.app",
+    "description": "Commandeck is a cross-platform desktop app that turns shell and SSH commands into a grid of clickable buttons. Click once and the command runs locally or over SSH, with the output in a window. Open-core, no cloud, no account, no telemetry.",
+    "author": {
+      "@type": "Person",
+      "name": "neurocontrarian"
+    },
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "isAccessibleForFree": true,
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Commandeck (free core)",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "AGPLv3 core: unlimited local command buttons."
+      },
+      {
+        "@type": "Offer",
+        "name": "Commandeck Pro",
+        "price": "29",
+        "priceCurrency": "USD",
+        "description": "SSH machines, multi-machine buttons, themes, backup, and an MCP server for AI integration. $29 one-time purchase, includes 1 year of updates. 14-day free trial."
+      }
+    ]
+  }
+  </script>
+{% endblock %}

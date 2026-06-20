@@ -1,0 +1,141 @@
+site_name: Commandeck
+site_description: A visual command launcher for Linux, macOS and Windows — run local and SSH commands with one click.
+site_url: https://commandeck.app
+repo_url: https://github.com/neurocontrarian/commandeck
+repo_name: neurocontrarian/commandeck
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fr
+          name: Français
+          build: true
+          nav_translations:
+            Home: Accueil
+            Getting Started: Prise en main
+            Installation: Installation
+            Quick Start: Démarrage rapide
+            Glossary: Glossaire
+            Button Packs: Packs de boutons
+            Reference: Référence
+            Main Window: Fenêtre principale
+            Button Editor: Éditeur de bouton
+            Preferences: Préférences
+            SSH Machines: Machines SSH
+            Execution Profiles: Profils d'exécution
+            Command Variables: Variables de commande
+            Security: Sécurité
+            Use Cases: Cas d'usage
+            Overview: Aperçu
+            Home Server Management: Gestion d'un serveur domestique
+            Development Workflow: Flux de développement
+            Manage a Homelab Fleet: Gérer un parc homelab
+            Drive Commandeck from a Local AI: Piloter Commandeck depuis une IA locale
+            Beginner Guide: Guide du débutant
+            Pro Features: Fonctionnalités Pro
+            SSH & Multi-machine: SSH & multi-machines
+            Multi-select: Sélection multiple
+            Themes: Thèmes
+            Backup & Restore: Sauvegarde & restauration
+            AI Integration (MCP): Intégration IA (MCP)
+            Activating your license: Activer votre licence
+            License & Devices: Licence & appareils
+            Legal: Mentions légales
+            Terms of Service: Conditions d'utilisation
+            Privacy Policy: Politique de confidentialité
+            Refund Policy: Politique de remboursement
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: installation.md
+    - Quick Start: quick-start.md
+    - FAQ: faq.md
+    - Glossary: glossary.md
+  - Button Packs: packs.md
+  - Reference:
+    - Main Window: reference/main-window.md
+    - Button Editor: reference/button-editor.md
+    - Preferences: reference/preferences.md
+    - SSH Machines: reference/ssh-machines.md
+    - Execution Profiles: reference/execution-profiles.md
+    - Command Variables: reference/command-variables.md
+    - Security: reference/security.md
+  - Use Cases:
+    - Overview: use-cases/index.md
+    - Home Server Management: use-cases/home-server.md
+    - Development Workflow: use-cases/dev-workflow.md
+    - Manage a Homelab Fleet: use-cases/homelab.md
+    - Drive Commandeck from a Local AI: use-cases/local-ai.md
+    - Beginner Guide: use-cases/beginner.md
+  - Pro Features:
+    - Overview: pro.md
+    - SSH & Multi-machine: pro/ssh.md
+    - Multi-select: pro/multiselect.md
+    - Themes: pro/themes.md
+    - Backup & Restore: pro/backup.md
+    - AI Integration (MCP): pro/mcp.md
+    - Activating your license: pro/activating-your-license.md
+    - License & Devices: pro/license-devices.md
+  - Legal:
+    - Terms of Service: legal/terms.md
+    - Privacy Policy: legal/privacy.md
+    - Refund Policy: legal/refund.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/neurocontrarian/commandeck
+
+copyright: >-
+  Copyright &copy; 2026 neurocontrarian &mdash;
+  <a href="/legal/terms/">Terms</a> &middot;
+  <a href="/legal/privacy/">Privacy</a> &middot;
+  <a href="/legal/refund/">Refunds</a>

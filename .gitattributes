@@ -1,0 +1,6 @@
+# Signed pack files must keep their exact bytes on every platform.
+# Ed25519 signatures are computed over the LF-newline pack.toml; if git rewrites
+# line endings to CRLF on Windows checkout, verify_signature() fails (the test
+# `test_shipped_pack_parses_and_verifies` broke the Windows build this way).
+dev/packs/**/pack.toml -text
+dev/packs/**/pack.sig  binary

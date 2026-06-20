@@ -1,0 +1,66 @@
+/* Commandeck base QSS */
+
+QFrame#ButtonTile {
+    border-radius: 12px;
+    border: 1px solid palette(mid);
+    background-color: palette(button);
+    padding: 4px;
+}
+
+QFrame#ButtonTile:hover {
+    background-color: palette(highlight);
+    border-color: palette(highlight);
+}
+
+QFrame#ButtonTile:disabled {
+    opacity: 0.6;
+}
+
+/* running state */
+QFrame#ButtonTile[running="true"] {
+    opacity: 0.65;
+}
+
+/* Flash colours are applied per-widget in ButtonTile.flash_result (_flash_qss) so
+   they win over a tile's per-button colour; the old [success]/[error] property
+   rules here were always overridden, so they were removed. */
+
+/* multi-select */
+QFrame#ButtonTile[selected="true"] {
+    border: 3px solid palette(highlight);
+    background-color: palette(highlight);
+    color: palette(highlighted-text);
+}
+
+QLabel#TileLabel {
+    font-weight: bold;
+    font-size: 9pt;
+    background: transparent;
+}
+
+/* ── Size variants ────────────────────────────────────────────────── */
+
+QFrame#ButtonTile[tile-size="small"] {
+    border-radius: 8px;
+}
+
+QFrame#ButtonTile[tile-size="small"] QLabel#TileLabel {
+    font-size: 8pt;
+}
+
+QFrame#ButtonTile[tile-size="large"] QLabel#TileLabel {
+    font-size: 11pt;
+}
+
+/* Themes are injected per-tile by ButtonTile.apply_theme() — see commandeck_qt/themes.py. */
+
+/* category bar buttons */
+QToolButton {
+    border-radius: 12px;
+    padding: 4px 10px;
+}
+
+QToolButton:checked {
+    background-color: palette(highlight);
+    color: palette(highlighted-text);
+}
