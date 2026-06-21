@@ -1,0 +1,101 @@
+# Terms of Service
+
+*Last updated: May 2026*
+
+## Provider
+
+These Terms are entered into with the operator of Commandeck, doing business as **neurocontrarian**, located in Québec, Canada. Payments are processed by [LemonSqueezy](https://www.lemonsqueezy.com), acting as Merchant of Record — they handle VAT, sales tax, invoicing and chargeback management on behalf of the author.
+
+**Contact:** [neurocontrarian@gmail.com](mailto:neurocontrarian@gmail.com)
+
+## Mobile app (Android)
+
+The **Android** app is distributed through the **Google Play Store** as a **one-time in-app purchase** (a single lifetime unlock), with Google as the seller and payment processor (not LemonSqueezy). For the Android app, the following apply in place of the license-key terms in sections 2–5:
+
+- Access requires the **one-time Google Play purchase** tied to your Google account. There is **no free tier, no license key and no device-count limit** on mobile.
+- The purchase is **a single charge — it does not auto-renew, and there is nothing to cancel**. Once bought, the app stays unlocked on your Google account; restore it on a new device with **Restore purchases**. Billing is also governed by **Google Play's terms of service**.
+- Commandeck is **proprietary software**; the **Commandeck** name and branding remain reserved.
+
+All other sections of these Terms — the disclaimer of warranties, limitation of liability, **your responsibilities**, indemnification, acceptable use, eligibility, and governing law — apply equally to the Android app.
+
+## 1. Acceptance
+
+By downloading, installing, or using Commandeck ("the Software"), you agree to these Terms of Service. If you do not agree, do not use the Software. When you first launch the Software you are asked to confirm your acceptance, and for Pro purchases acceptance is also confirmed at checkout.
+
+## 2. License
+
+**Free edition.** The free edition of Commandeck is proprietary software, provided free of charge under an End User License Agreement (the LICENSE distributed with the app). You may install and use it for personal or commercial purposes; you may not modify, reverse engineer, or redistribute modified versions. All rights not expressly granted are reserved.
+
+**Trademarks.** No license granted here grants any right to the **Commandeck** name, logo, or other trademarks or branding of the author, which are reserved. You may not use them in a way that implies endorsement or affiliation without permission.
+
+**Pro features.** The Pro module (`commandeck_core/pro/`) is proprietary software. Purchasing a Pro license grants you a personal, non-transferable, non-exclusive right to use the Pro features on up to **3 desktop devices simultaneously** (Linux, macOS, Windows) that you own or control. The Android app is a separate product distributed through the Google Play Store and is not covered by this desktop license.
+
+## 3. Restrictions
+
+You may not:
+
+- Share, sell, or transfer your Pro license key to another person
+- Attempt to reverse-engineer, decompile, or bypass the Pro license validation
+- Use the Pro features on more than 3 desktop devices at the same time
+
+## 4. License keys
+
+License keys are tied to the email address used at purchase. Each activation consumes one slot (maximum 3). If you reinstall your OS without deactivating first, contact support to free the orphaned slot.
+
+## 5. Updates
+
+A Pro purchase is **one-time — the version you buy keeps working for life**, with no expiry of Pro features and no required renewal. We may release free updates from time to time. A future major version ("Commandeck 2") would be a separate, optional purchase; any version you have already bought remains yours and continues to work.
+
+## 6. Disclaimer of warranties
+
+The Software is provided "as is", without warranty of any kind. Use it at your own risk. The author is not liable for any damage caused by the use or inability to use the Software.
+
+## 7. Limitation of liability
+
+To the maximum extent permitted by applicable law, in no event shall the author be liable for any indirect, incidental, special, punitive, or consequential damages arising from or related to the use of, or inability to use, the Software — including but not limited to loss of data, loss of profits, business interruption, or damage to remote systems caused by user-issued commands — even if advised of the possibility of such damages.
+
+The author's total aggregate liability for any direct damages, regardless of the cause of action (contract, tort, strict liability, or otherwise), shall not exceed the amount paid by you for the Software during the twelve (12) months preceding the event giving rise to the claim. For users of the free edition who have not paid for the Software, the Software is provided "AS IS" with no warranty of any kind, and the author shall have no liability whatsoever.
+
+Some jurisdictions do not allow the exclusion of certain warranties or limitations of liability for consequential or incidental damages. In such jurisdictions, liability is limited to the smallest amount permitted by applicable law.
+
+## 8. Your responsibilities
+
+Commandeck is a **launcher**: it executes the commands **you** create, exactly as you write them, locally or over SSH. It does not validate, sandbox, review, or restrict those commands.
+
+You are solely responsible for:
+
+- The commands you create, run, schedule, or allow an AI assistant to run via the MCP integration, and for all of their consequences — including data loss, system damage, downtime, or effects on remote or third-party systems.
+- Maintaining your own backups of any important data.
+- Ensuring you are authorized to run commands on, and connect to, any machine you target.
+
+Do not run commands you do not understand.
+
+## 9. Indemnification
+
+To the maximum extent permitted by applicable law, you agree to indemnify, defend, and hold harmless the author from and against any claims, demands, damages, losses, liabilities, and expenses (including reasonable legal fees) arising out of or related to: your use or misuse of the Software; the commands you run through it; your violation of these Terms; or your infringement of any law or third-party right.
+
+## 10. Acceptable use and high-risk activities
+
+You may not use the Software for any unlawful purpose, to access systems you are not authorized to access, or in any manner that violates applicable law.
+
+The Software is general-purpose desktop software. It is **not** designed or intended for use in high-risk or safety-critical environments — including life support, medical devices, nuclear facilities, aircraft or air-traffic systems, or any environment where failure could lead to death, personal injury, or severe physical or environmental damage. You assume all risk arising from any such use.
+
+## 11. Eligibility
+
+You must be of the age of majority in your jurisdiction and able to form a legally binding contract to use the Software or purchase a Pro license.
+
+## 12. Governing law
+
+These terms are governed by the laws of the province of Québec, Canada, without regard to its conflict-of-law rules. The parties submit to the exclusive jurisdiction of the courts located in Québec, Canada, to the extent permitted by applicable mandatory consumer-protection law.
+
+## 13. Entire agreement; severability
+
+These Terms, together with the Privacy Policy and Refund Policy, constitute the entire agreement between you and the author regarding the Software and supersede any prior understanding. If any provision is held invalid or unenforceable, the remaining provisions remain in full force and effect, and the unenforceable provision will be enforced to the maximum extent permitted by law. The author's failure to enforce any right or provision is not a waiver of that right or provision.
+
+## 14. Changes to these Terms
+
+We reserve the right to modify these Terms at any time, at our sole discretion. Changes become effective immediately upon posting to this page. The "Last updated" date at the top of this page reflects the most recent revision. Your continued use of the Software after changes are posted constitutes your acceptance of the revised Terms. We encourage you to review these Terms periodically.
+
+## 15. Contact
+
+For questions about these terms: [neurocontrarian@gmail.com](mailto:neurocontrarian@gmail.com)
