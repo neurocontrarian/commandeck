@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Commandeck — Your server commands, one tap away.</title>
+<meta name="description" content="A visual button grid that runs your home-server commands with one tap. Nothing leaves your device. No account. No cloud. 14-day free trial." />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Commandeck — your server commands, one tap away" />
+<meta property="og:description" content="A visual button grid for your local & SSH commands. Private by design — nothing leaves your device, no account, no cloud." />
+<meta property="og:image" content="https://commandeck.app/assets/og-cover.png" />
+<meta property="og:url" content="https://commandeck.app/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://commandeck.app/assets/og-cover.png" />
+<style>
+  :root{
+    --bg:#0a0a0f;
+    --bg-soft:#11111b;
+    --card:#15151f;
+    --line:#23232f;
+    --txt:#ecedf5;
+    --muted:#9a9bb0;
+    --brand:#7c5cff;
+    --brand-2:#22d3ee;
+    --grad:linear-gradient(120deg,#7c5cff 0%,#a855f7 45%,#22d3ee 100%);
+    --radius:18px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* glow backdrop */
+  .glow{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  .glow::before,.glow::after{content:"";position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(120px);opacity:.30}
+  .glow::before{background:#7c5cff;top:-180px;left:-120px}
+  .glow::after{background:#22d3ee;top:240px;right:-160px;opacity:.20}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,10,15,.6);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:18px}
+  .logo .mark{width:26px;height:26px;border-radius:8px;background:var(--grad);box-shadow:0 0 18px rgba(124,92,255,.6)}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-cta{font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--grad);color:#0a0a0f;white-space:nowrap}
+  .nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+  .nav-links a:hover{color:var(--txt)}
+  .lang-select{background:var(--bg-soft);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;cursor:pointer;outline:none}
+  .lang-select:hover{color:var(--txt);border-color:var(--brand)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease}
+  .btn-primary{background:var(--grad);color:#0a0a0f;box-shadow:0 10px 40px rgba(124,92,255,.35)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 50px rgba(124,92,255,.5)}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.02)}
+  .btn-ghost:hover{border-color:var(--brand)}
+
+  /* hero */
+  .hero{padding:96px 0 72px;text-align:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);border:1px solid var(--line);background:var(--bg-soft);padding:7px 14px;border-radius:999px;margin-bottom:28px}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--brand-2);box-shadow:0 0 10px var(--brand-2)}
+  h1{font-size:clamp(38px,6vw,68px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin-bottom:22px}
+  .sub{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 auto 36px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .reassure{margin-top:18px;font-size:13px;color:var(--muted)}
+
+  /* grid mockup */
+  .mock{margin:64px auto 0;max-width:760px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#13131d,#0d0d15);padding:22px;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+  .mock-bar{display:flex;gap:7px;margin-bottom:18px}
+  .mock-bar span{width:11px;height:11px;border-radius:50%;background:#2a2a3a}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .tile{aspect-ratio:1.35;min-width:0;border-radius:14px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--muted);transition:transform .2s,border-color .2s}
+  .tile:hover{transform:translateY(-3px);border-color:var(--brand)}
+  .tile .ic{font-size:24px;color:#c9cadb;line-height:0}
+  .tile .ic svg{width:26px;height:26px;display:block}
+  .tile.accent .ic{color:var(--txt)}
+  .tile.accent{background:linear-gradient(160deg,rgba(124,92,255,.18),rgba(34,211,238,.10));border-color:rgba(124,92,255,.5);color:var(--txt)}
+  @media(max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}}
+
+  /* sections */
+  section{padding:88px 0}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+  h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.02em;line-height:1.1;font-weight:800;margin-bottom:18px}
+  .lead{font-size:18px;color:var(--muted);max-width:620px}
+  .center{text-align:center}
+  .center .lead{margin:0 auto}
+
+  /* problem */
+  .problem{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .chat{max-width:560px;margin:40px auto 0;display:flex;flex-direction:column;gap:12px}
+  .bubble{padding:14px 18px;border-radius:16px;font-size:15px;border:1px solid var(--line)}
+  .bubble.ai{background:var(--card);align-self:flex-start;border-bottom-left-radius:4px}
+  .bubble.you{background:rgba(124,92,255,.12);border-color:rgba(124,92,255,.35);align-self:flex-end;border-bottom-right-radius:4px}
+  .bubble small{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+
+  /* hideouts (where commands get lost) */
+  .hideouts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:44px auto 8px;max-width:860px}
+  @media(max-width:720px){.hideouts{grid-template-columns:repeat(2,1fr)}}
+  .hideout{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 18px;text-align:center}
+  .hideout .ic{font-size:26px;display:block;margin-bottom:10px}
+  .hideout b{display:block;font-size:15px;color:var(--txt);margin-bottom:2px}
+  .hideout span{font-size:13px;color:var(--muted)}
+  .hideout .x{position:absolute;top:10px;right:12px;color:#5a5a72;font-size:14px}
+  .arrow-down{font-size:26px;color:var(--brand);margin:14px 0 2px}
+  .resolve{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(124,92,255,.5);background:linear-gradient(160deg,rgba(124,92,255,.16),rgba(34,211,238,.08));border-radius:16px;padding:18px 26px;font-size:17px;font-weight:600;margin-top:6px}
+  .resolve .ic{width:34px;height:34px;border-radius:10px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .resolve .ic svg{width:20px;height:20px;color:#0a0a0f}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .step .n{width:38px;height:38px;border-radius:12px;background:var(--grad);color:#0a0a0f;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .step h3{font-size:19px;margin-bottom:8px;letter-spacing:-.01em}
+  .step p{color:var(--muted);font-size:15px}
+  @media(max-width:780px){.steps{grid-template-columns:1fr}}
+
+  /* feature split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .split>*{min-width:0}
+  @media(max-width:780px){.split{grid-template-columns:1fr;gap:28px}}
+  .feature-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--brand-2);border:1px solid rgba(34,211,238,.3);background:rgba(34,211,238,.08);padding:6px 12px;border-radius:999px;margin-bottom:20px}
+  .check{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:12px}
+  .check li{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+  .check li b{color:var(--txt);font-weight:600}
+  .check .tick{color:var(--brand-2);flex:0 0 auto;margin-top:2px}
+
+  /* phone mock */
+  .phone{margin:0 auto;width:230px;height:460px;border-radius:36px;border:1px solid var(--line);background:linear-gradient(180deg,#13131d,#0c0c14);padding:16px;box-shadow:0 30px 80px rgba(0,0,0,.6);position:relative}
+  .phone::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:70px;height:6px;border-radius:6px;background:#2a2a3a}
+  .ptiles{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ptile{aspect-ratio:1;border-radius:12px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:22px;color:#c9cadb}
+  .ptile svg{width:24px;height:24px;display:block}
+  .ptile.accent{color:var(--txt)}
+  .ptile.accent{background:linear-gradient(160deg,rgba(124,92,255,.2),rgba(34,211,238,.12));border-color:rgba(124,92,255,.5)}
+
+  /* features grid */
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;text-align:left}
+  @media(max-width:780px){.fgrid{grid-template-columns:1fr}}
+  .fitem{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative;transition:border-color .2s,transform .2s}
+  .fitem:hover{border-color:#7c5cff;transform:translateY(-3px)}
+  .fitem .fic{font-size:26px;margin-bottom:14px;display:block}
+  .fitem h3{font-size:17px;margin-bottom:6px;letter-spacing:-.01em}
+  .fitem p{color:var(--muted);font-size:14px}
+  .pro-pill{position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;letter-spacing:.04em;color:#0a0a0f;background:var(--grad);padding:3px 9px;border-radius:999px}
+
+  /* persona */
+  .persona-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
+  @media(max-width:680px){.persona-grid{grid-template-columns:1fr}}
+  .pcard{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--bg-soft)}
+  .pcard .ic{font-size:22px;margin-bottom:10px}
+  .pcard p{color:var(--muted);font-size:15px}
+
+  /* pricing */
+  .pricing{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;max-width:980px;margin-left:auto;margin-right:auto}
+  @media(max-width:880px){.price-grid{grid-template-columns:1fr}}
+  .plan{border:1px solid var(--line);border-radius:20px;padding:34px;background:var(--card);position:relative;display:flex;flex-direction:column}
+  .plan.pro{border-color:rgba(124,92,255,.5);box-shadow:0 24px 70px rgba(124,92,255,.18)}
+  .plan .tag{position:absolute;top:-12px;right:24px;font-size:12px;font-weight:700;background:var(--grad);color:#0a0a0f;padding:5px 12px;border-radius:999px}
+  .plan h3{font-size:20px;margin-bottom:6px}
+  .plan .amt{font-size:42px;font-weight:800;letter-spacing:-.02em;margin:10px 0 4px}
+  .plan .amt span{font-size:15px;font-weight:600;color:var(--muted)}
+  .plan .desc{color:var(--muted);font-size:14px;margin-bottom:20px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px;flex:1 0 auto}
+  .plan li{display:flex;gap:10px;color:var(--muted);font-size:15px}
+  .plan li .tick{color:var(--brand-2)}
+  .plan .btn{width:100%;justify-content:center;text-align:center;margin-top:auto}
+  .plan .plan-note{margin:0 0 14px;text-align:center;font-size:13px;color:var(--muted)}
+
+  /* final */
+  .final{text-align:center}
+  .final .box{border:1px solid var(--line);border-radius:28px;padding:64px 32px;background:linear-gradient(160deg,rgba(124,92,255,.12),rgba(34,211,238,.06))}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot a{color:var(--muted)}
+  .foot a:hover{color:var(--txt)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* RTL */
+  [dir="rtl"] .nav-links,[dir="rtl"] .cta-row{direction:rtl}
+  [dir="rtl"] .fgrid,[dir="rtl"] .price-grid,[dir="rtl"] .persona-grid{text-align:right}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo"><span class="mark"></span> Commandeck</div>
+      <div class="nav-links">
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#packs" data-i18n="nav.packs">Packs</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="/installation/" data-i18n="nav.docs">Docs</a>
+      </div>
+      <div class="nav-right">
+        <select class="lang-select" id="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+        <a href="/download/" class="nav-cta" data-i18n="nav.download">Download</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <span class="pill"><span class="dot"></span> <span data-i18n="hero.pill">Private by design — nothing leaves your device</span></span>
+    <h1 data-i18n="hero.h1">Your server commands,<br><span class="grad-text">one tap away.</span></h1>
+    <p class="sub" data-i18n="hero.sub">Commandeck turns the commands you rely on into a visual button grid. Save them once, run them with a tap — on your computer or over SSH to your machines.</p>
+    <div class="cta-row">
+      <a href="/download/" class="btn btn-primary" data-i18n="hero.cta1">Download — free 14-day Pro trial →</a>
+    </div>
+    <p class="reassure" data-i18n="hero.reassure">No account. No cloud. No terminal required.</p>
+
+    <div class="mock" aria-hidden="true">
+      <div class="mock-bar"><span></span><span></span><span></span></div>
+      <div class="tiles">
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"/><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"/></svg></span> <span data-i18n="tile.update">Update containers</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/><path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198zM3.655 4.26 1.592 8.043Q1.79 8 2 8h12q.21 0 .408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/></svg></span> <span data-i18n="tile.disk">Disk usage</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/></svg></span> <span data-i18n="tile.cpu">CPU load</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/><path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/></svg></span> <span data-i18n="tile.temp">CPU temp</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg></span> <span data-i18n="tile.health">System health</span></div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.5 1v7h1V1z"/><path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/></svg></span> <span data-i18n="tile.reboot">Reboot NAS</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5M3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"/><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg></span> <span data-i18n="tile.network">Network check</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/></svg></span> <span data-i18n="tile.space">Free up space</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="prob.eyebrow">Sound familiar?</p>
+    <h2 data-i18n="prob.h2">You found the command once. Now where is it?</h2>
+    <p class="lead center" data-i18n="prob.lead">It worked back then. Today, it's scattered across all the places you "saved" it:</p>
+    <div class="hideouts" aria-hidden="true">
+      <div class="hideout"><span class="x">✕</span><span class="ic">📝</span><b data-i18n="prob.h1t">A sticky note</b><span data-i18n="prob.h1s">…somewhere on the desk</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">🗂️</span><b data-i18n="prob.h2t">One of 30 tabs</b><span data-i18n="prob.h2s">still open "just in case"</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">💬</span><b data-i18n="prob.h3t">Page 6 of a chat</b><span data-i18n="prob.h3s">you'll never scroll back to</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">📄</span><b data-i18n="prob.h4t">A notes.txt</b><span data-i18n="prob.h4s">last seen three laptops ago</span></div>
+    </div>
+    <div class="arrow-down" aria-hidden="true">↓</div>
+    <div class="resolve">
+      <span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg></span>
+      <span data-i18n="prob.resolve">One command. One button. One tap.</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+    <h2 data-i18n="how.h2">From command to one tap</h2>
+    <div class="steps" style="text-align:left">
+      <div class="step">
+        <div class="n">1</div>
+        <h3 data-i18n="how.s1h">You've got a command</h3>
+        <p data-i18n="how.s1p">From a setup guide, a forum, or your AI assistant — wherever it came from, you've got a command that gets the job done.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3 data-i18n="how.s2h">Make it a button</h3>
+        <p data-i18n="how.s2p">Paste it into Commandeck, give it a name and an icon. No terminal, nothing to memorize.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3 data-i18n="how.s3h">Tap it whenever you need it</h3>
+        <p data-i18n="how.s3p">It runs on your computer or over SSH to your machines. Saved for good — no more hunting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE (demo video, Neon screenshot as poster) -->
+<section style="padding-top:24px">
+  <div class="wrap center">
+    <video controls preload="metadata" poster="/assets/screenshot-neon.png" aria-label="Commandeck demo"
+           style="max-width:760px;width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:0 40px 120px rgba(0,0,0,.6)">
+      <source src="/assets/Commandeck-Demo-01.mp4" type="video/mp4">
+      <img src="/assets/screenshot-neon.png" alt="Commandeck button grid in the Neon theme"
+           style="max-width:760px;width:100%;border-radius:18px;border:1px solid var(--line)" />
+    </video>
+    <p class="reassure" style="margin-top:16px" data-i18n="show.caption">The real thing — Commandeck with the Neon theme. Six themes included.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="feat.eyebrow">Everything you need</p>
+    <h2 data-i18n="feat.h2">Built to make commands effortless.</h2>
+    <p class="lead center" data-i18n="feat.lead">The essentials are free. SSH and the power features are Pro.</p>
+    <div class="fgrid">
+      <div class="fitem"><span class="fic">⚡</span><h3 data-i18n="feat.1h">One tap to run</h3><p data-i18n="feat.1p">Local or over SSH, your command runs with a single click — output right in a window.</p></div>
+      <div class="fitem"><span class="fic">⌨️</span><h3 data-i18n="feat.2h">No terminal needed</h3><p data-i18n="feat.2p">Every command is visible and editable in plain sight. Beginner-first by design.</p></div>
+      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🖥️</span><h3 data-i18n="feat.3h">SSH to your servers</h3><p data-i18n="feat.3p">Reach your NAS, Pi or VPS securely — no OpenSSH setup, no shell wrangling.</p></div>
+      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🗂️</span><h3 data-i18n="feat.4h">Run on many machines</h3><p data-i18n="feat.4p">Send one command to a whole group of machines at once.</p></div>
+      <div class="fitem"><span class="fic">🔒</span><h3 data-i18n="feat.5h">Private &amp; offline</h3><p data-i18n="feat.5p">No account, no cloud, no telemetry. Your commands and machines stay on your device.</p></div>
+      <div class="fitem"><a href="#packs" style="position:absolute;inset:0"></a><span class="fic">📦</span><h3 data-i18n="feat.6h">Free button packs</h3><p data-i18n="feat.6p">Install ready-made sets for common tasks in a click. All packs are free.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap split">
+    <div>
+      <span class="badge" data-i18n="priv.badge">🔒 Private by design</span>
+      <h2 data-i18n="priv.h2">Your commands stay yours.</h2>
+      <p class="lead" data-i18n="priv.lead">No account to create. No server to sign into. No data sent anywhere. Commandeck runs entirely on your computer — your commands and your machines never touch a cloud, because there isn't one.</p>
+      <ul class="check">
+        <li><span class="tick">✓</span><span data-i18n="priv.li1"><b>Nothing leaves your device.</b> Everything is stored locally.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="priv.li2"><b>No account, ever.</b> Download, open, done.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="priv.li3"><b>Direct connection.</b> SSH straight to your own machines.</span></li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div style="font-size:15px;color:var(--muted)" data-i18n="priv.cardlabel">Where your data lives</div>
+      <div style="font-size:34px;font-weight:800;margin:14px 0;letter-spacing:-.02em" data-i18n="priv.cardbig">On your device.<br><span class="grad-text">And nowhere else.</span></div>
+      <p style="color:var(--muted);font-size:15px" data-i18n="priv.cardp">No telemetry dashboards. No "we value your privacy" banners. Just an app that minds its own business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANDROID -->
+<section>
+  <div class="wrap split">
+    <div class="feature-card center" style="background:transparent;border:none;padding:0">
+      <div class="phone" aria-hidden="true">
+        <div class="ptiles">
+          <div class="ptile accent"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"/><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/><path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198zM3.655 4.26 1.592 8.043Q1.79 8 2 8h12q.21 0 .408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/><path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg></div>
+          <div class="ptile accent"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.5 1v7h1V1z"/><path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="badge" data-i18n="and.badge">📱 Commandeck for Android · coming soon</span>
+      <h2 data-i18n="and.h2">Your control panel, in your pocket.</h2>
+      <p class="lead" data-i18n="and.lead">Coming soon: put your button grid on your phone. From the couch, reboot the NAS, restart a container or check disk space — without getting up for the laptop.</p>
+      <ul class="check">
+        <li><span class="tick">✓</span><span data-i18n="and.li1">Same button grid, on mobile.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="and.li2">Reaches your machines over SSH on your network.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="and.li3">One-time price, yours for life.</span></li>
+      </ul>
+      <p class="reassure" style="margin-top:16px" data-i18n="and.note">Out and about? It works wherever your phone can reach your machines — at home, or through your own VPN.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MULTI-MACHINE -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap split">
+    <div>
+      <span class="badge" data-i18n="multi.badge">⚡ Multi-machine</span>
+      <h2 data-i18n="multi.h2">One command. Every machine.</h2>
+      <p class="lead" data-i18n="multi.lead">Looking after more than one box? Send the same command to a whole group at once — update them, reboot them, check on them — instead of repeating yourself on each one.</p>
+      <ul class="check">
+        <li><span class="tick">✓</span><span data-i18n="multi.li1"><b>Pick several machines,</b> run the command once.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="multi.li2"><b>One button</b> across your whole fleet.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="multi.li3">Works the same whether it's 2 boxes or 20.</span></li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div style="font-size:15px;color:var(--muted);margin-bottom:16px" data-i18n="multi.runon">Run on</div>
+      <div class="tiles" style="grid-template-columns:repeat(3,1fr)">
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> web-01</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> web-02</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> db-01</div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px" data-i18n="multi.caption">One tap → the command runs on every selected machine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BUTTON PACKS (community / makers) -->
+<section id="packs">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="packs.eyebrow">For communities &amp; makers</p>
+    <h2 data-i18n="packs.h2">Button packs: share a whole setup in one click.</h2>
+    <p class="lead center" data-i18n="packs.lead">A pack is a ready-made set of buttons for a tool or a workflow. Install one and you're set up in seconds — no hunting, no guesswork. <b style="color:var(--txt)">Every pack is free.</b></p>
+    <div class="split" style="margin-top:52px;text-align:left">
+      <div class="feature-card">
+        <div class="fic" style="font-size:26px;margin-bottom:12px">🌐</div>
+        <h3 style="font-size:19px;margin-bottom:8px" data-i18n="packs.c1h">Make software people run?</h3>
+        <p style="color:var(--muted);font-size:15px" data-i18n="packs.c1p">Ship an official pack for your software — from a weekend utility to a platform used by millions. Commandeck becomes a friendly graphical layer over your commands, and a faster path to "it just works" for everyone who runs it.</p>
+        <ul class="check">
+          <li><span class="tick">✓</span><span data-i18n="packs.c1li1">Your commands, one tap away for everyone.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c1li2">Signed &amp; trusted — installs verified by the app.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c1li3">Free to publish, free for users.</span></li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="fic" style="font-size:26px;margin-bottom:12px">🛠️</div>
+        <h3 style="font-size:19px;margin-bottom:8px" data-i18n="packs.c2h">Built a handy set of buttons?</h3>
+        <p style="color:var(--muted);font-size:15px" data-i18n="packs.c2p">Export your buttons as a pack and submit it on GitHub. Once reviewed and signed, it shows up in the in-app gallery for everyone.</p>
+        <ul class="check">
+          <li><span class="tick">✓</span><span data-i18n="packs.c2li1">Export to a shareable pack file — free.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c2li2">Submit it as a pull request on GitHub.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c2li3">Help others skip the setup you already figured out.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-row" style="margin-top:44px">
+      <a href="/packs/" class="btn btn-primary" data-i18n="packs.cta1">Browse button packs</a>
+      <a href="https://github.com/neurocontrarian/commandeck-packs" class="btn btn-ghost" data-i18n="packs.cta2">Create &amp; submit a pack →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="per.eyebrow">Made for you</p>
+    <h2 data-i18n="per.h2">If this is your setup, you're home.</h2>
+    <div class="persona-grid" style="text-align:left">
+      <div class="pcard"><div class="ic">🏠</div><p data-i18n="per.c1">You run a <b style="color:var(--txt)">home server</b> — a NAS, mini-PC, Proxmox or Docker box — with a machine or three.</p></div>
+      <div class="pcard"><div class="ic">🤖</div><p data-i18n="per.c2">You set it up <b style="color:var(--txt)">with an AI as your tutor</b>, and you'd rather not live in a terminal.</p></div>
+      <div class="pcard"><div class="ic">💡</div><p data-i18n="per.c3">You're comfortable on Windows or Mac, but <b style="color:var(--txt)">command lines aren't your happy place</b>.</p></div>
+      <div class="pcard"><div class="ic">🎯</div><p data-i18n="per.c4">You want your go-to commands <b style="color:var(--txt)">saved and one tap away</b> — across one machine or several.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="price.eyebrow">Simple pricing</p>
+    <h2 data-i18n="price.h2">Buy once. Yours for good.</h2>
+    <p class="lead center" data-i18n="price.lead">No subscription. No renewal. Try everything free for 14 days.</p>
+    <div class="price-grid" style="text-align:left">
+      <div class="plan">
+        <h3 data-i18n="price.free.name">Free</h3>
+        <div class="amt">$0</div>
+        <p class="desc" data-i18n="price.free.desc">Run commands on this computer. Forever.</p>
+        <ul>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li1">Unlimited buttons on your PC</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li2">All icons &amp; button colors</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li3">No account, fully private</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li4">Upgrade to SSH anytime</span></li>
+        </ul>
+        <a href="/download/" class="btn btn-ghost" data-i18n="price.free.btn">Download free</a>
+      </div>
+      <div class="plan pro">
+        <span class="tag" data-i18n="price.pop">Most popular</span>
+        <h3 data-i18n="price.desk.name">Desktop</h3>
+        <div class="amt">$29 <span data-i18n="price.once">once</span></div>
+        <p class="desc" data-i18n="price.desk.desc">Windows, macOS &amp; Linux. Lifetime.</p>
+        <ul>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li1">Everything in Free</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li2">SSH to all your machines</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li3">Run on several machines at once</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li4">Multi-select &amp; group actions</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li5">Run buttons from your AI assistant (MCP)</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li6">Reusable variables &amp; execution profiles</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li7">Custom themes, backup &amp; more</span></li>
+        </ul>
+        <p class="plan-note" data-i18n="price.desk.buy">or <a href="https://neurocontrarian.lemonsqueezy.com/checkout/buy/9c16845a-8ab6-4a36-b8da-9874d9d64f33" style="color:#9b7bff">buy a license</a> — activate it in the app</p>
+        <a href="/download/" class="btn btn-primary" data-i18n="price.desk.btn">Download — free 14-day Pro trial</a>
+      </div>
+      <div class="plan">
+        <span class="tag" style="background:var(--bg-soft);color:var(--brand-2);border:1px solid rgba(34,211,238,.4)" data-i18n="price.soon">Coming soon</span>
+        <h3 data-i18n="price.and.name">Android</h3>
+        <div class="amt">$19 <span data-i18n="price.once">once</span></div>
+        <p class="desc" data-i18n="price.and.desc">Your buttons in your pocket. In preparation.</p>
+        <ul>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li1">The full button grid, on mobile</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li2">Secure SSH to your machines</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li3">One-time price, no subscription</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li4">Local backup &amp; restore</span></li>
+        </ul>
+        <span class="btn btn-ghost" aria-disabled="true" style="opacity:.55;cursor:default" data-i18n="price.and.btn">Coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="box">
+      <h2 data-i18n="final.h2">Stop hunting. Start tapping.</h2>
+      <p class="lead center" style="margin:0 auto 30px" data-i18n="final.lead">The commands you rely on — saved, organized, and one tap away.</p>
+      <a href="/download/" class="btn btn-primary" data-i18n="final.cta">Download — free 14-day Pro trial →</a>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT A BUG -->
+<section style="padding:64px 0">
+  <div class="wrap center">
+    <p class="eyebrow" data-i18n="bug.eyebrow">Found a glitch?</p>
+    <h2 data-i18n="bug.h2">Report a bug</h2>
+    <p class="lead center" style="margin-bottom:28px" data-i18n="bug.lead">Something not working the way it should? Let us know — it takes a minute and helps make Commandeck better for everyone.</p>
+    <a href="https://github.com/neurocontrarian/commandeck/issues/new" class="btn btn-ghost" data-i18n="bug.cta">Report a bug on GitHub →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="logo"><span class="mark"></span> Commandeck</div>
+    <div data-i18n="foot.tagline">Private by design · No account · No cloud</div>
+    <div>
+      <a href="/installation/" data-i18n="foot.docs">Docs</a> &nbsp;·&nbsp;
+      <a href="/faq/" data-i18n="foot.faq">FAQ</a> &nbsp;·&nbsp;
+      <a href="/download/" data-i18n="foot.download">Download</a> &nbsp;·&nbsp;
+      <a href="https://github.com/neurocontrarian/commandeck/issues/new" data-i18n="foot.bug">Report a bug</a>
+    </div>
+    <div>
+      <a href="/legal/terms/" data-i18n="foot.terms">Terms</a> &nbsp;·&nbsp;
+      <a href="/legal/privacy/" data-i18n="foot.privacy">Privacy</a> &nbsp;·&nbsp;
+      <a href="/legal/refund/" data-i18n="foot.refund">Refund</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/i18n.js"></script>
+<script>
+  const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+  document.querySelectorAll('section .wrap > *, .step, .pcard, .plan').forEach((el,i)=>{el.classList.add('reveal');obs.observe(el)});
+</script>
+</body>
+</html>
