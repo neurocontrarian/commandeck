@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{#
+  Custom head additions for SEO and AI discoverability.
+  schema.org SoftwareApplication structured data — helps Google render Commandeck as an
+  app (price/OS) and helps AI assistants extract accurate facts about the product.
+#}
+{% block extrahead %}
+  {{ super() }}
+
+  {# Google Search Console ownership verification #}
+  <meta name="google-site-verification" content="N3b806AuJbI0C5L-7WzWkkYJ-CLtMSQhXr9Waamvksw" />
+
+  {# Open Graph / Twitter card — branded preview when a commandeck.app link is shared #}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Commandeck" />
+  <meta property="og:title" content="Commandeck — your server commands, one tap away" />
+  <meta property="og:description" content="A desktop app for Windows, macOS and Linux that turns your shell and SSH commands into a grid of clickable buttons. Private by design — nothing leaves your device, no account, no cloud." />
+  <meta property="og:image" content="https://commandeck.app/assets/og-cover.png" />
+  <meta property="og:url" content="https://commandeck.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Commandeck — your server commands, one tap away" />
+  <meta name="twitter:description" content="Turn your shell and SSH commands into clickable buttons. Private by design — nothing leaves your device, no account, no cloud." />
+  <meta name="twitter:image" content="https://commandeck.app/assets/og-cover.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Commandeck",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, macOS, Windows",
+    "url": "https://commandeck.app",
+    "downloadUrl": "https://commandeck.app/download/",
+    "softwareHelp": "https://commandeck.app",
+    "description": "Commandeck is a cross-platform desktop app that turns shell and SSH commands into a grid of clickable buttons. Click once and the command runs locally or over SSH, with the output in a window. Private by design — nothing leaves your device, no account, no cloud, no telemetry.",
+    "author": {
+      "@type": "Person",
+      "name": "neurocontrarian"
+    },
+    "license": "https://commandeck.app/legal/terms/",
+    "isAccessibleForFree": true,
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Commandeck (free)",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free, private desktop app: unlimited local command buttons."
+      },
+      {
+        "@type": "Offer",
+        "name": "Commandeck Pro",
+        "price": "29",
+        "priceCurrency": "USD",
+        "description": "SSH machines, multi-machine buttons, custom themes, backup, and an MCP server for AI integration. $29 one-time, lifetime license. 14-day free trial."
+      }
+    ]
+  }
+  </script>
+{% endblock %}
