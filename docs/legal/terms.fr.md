@@ -1,0 +1,101 @@
+# Conditions d'utilisation
+
+*Dernière mise à jour : juin 2026*
+
+## Fournisseur
+
+Les présentes Conditions sont conclues avec l'opérateur de Commandeck, exerçant sous le nom **neurocontrarian**, situé au Québec, Canada. Les paiements sont traités par [LemonSqueezy](https://www.lemonsqueezy.com), agissant en tant que Merchant of Record — ils gèrent la TVA, les taxes de vente, la facturation et les litiges de paiement pour le compte de l'auteur.
+
+**Contact :** [neurocontrarian@gmail.com](mailto:neurocontrarian@gmail.com)
+
+## Application mobile (Android)
+
+L'application **Android** est une **application payante** distribuée via le **Google Play Store** (un achat unique, à vie), Google étant le vendeur et le prestataire de paiement (et non LemonSqueezy). Pour l'application Android, les éléments suivants s'appliquent à la place des dispositions sur les clés de licence des sections 2 à 5 :
+
+- L'accès nécessite l'**achat unique Google Play** lié à votre compte Google. Il n'y a **aucune version gratuite, aucune clé de licence ni limite d'appareils** sur mobile.
+- L'achat est **un paiement unique — sans renouvellement automatique et sans rien à annuler**. Une fois acheté, l'application reste liée à votre compte Google ; réinstallez-la sur un nouvel appareil depuis le Google Play Store avec le même compte. La facturation est également régie par les **conditions d'utilisation de Google Play**.
+- Commandeck est un **logiciel propriétaire** ; le nom **Commandeck** et les éléments de marque demeurent réservés.
+
+Toutes les autres sections des présentes Conditions — l'absence de garantie, la limitation de responsabilité, **vos responsabilités**, l'indemnisation, l'usage acceptable, l'admissibilité et le droit applicable — s'appliquent également à l'application Android.
+
+## 1. Acceptation
+
+En téléchargeant, installant ou utilisant Commandeck (« le Logiciel »), vous acceptez ces Conditions d'utilisation. Si vous n'êtes pas d'accord, n'utilisez pas le Logiciel. Au premier lancement du Logiciel, il vous est demandé de confirmer votre acceptation, et pour les achats Pro l'acceptation est également confirmée au moment du paiement.
+
+## 2. Licence
+
+**Version gratuite.** La version gratuite de Commandeck est un logiciel propriétaire, fourni gratuitement sous un contrat de licence utilisateur final (le fichier LICENSE distribué avec l'application). Vous pouvez l'installer et l'utiliser à des fins personnelles ou commerciales ; vous ne pouvez pas la modifier, la soumettre à de l'ingénierie inverse, ni en redistribuer des versions modifiées. Tous les droits non expressément accordés sont réservés.
+
+**Marques.** Aucune licence accordée ici n'accorde de droit sur le nom **Commandeck**, le logo ou les autres marques ou éléments de marque de l'auteur, qui sont réservés. Vous ne pouvez pas les utiliser d'une manière qui sous-entendrait une approbation ou une affiliation sans autorisation.
+
+**Fonctionnalités Pro.** Le module Pro est un logiciel propriétaire. L'achat d'une licence Pro vous accorde un droit d'utilisation personnel, non transférable et non exclusif des fonctionnalités Pro sur **3 appareils desktop simultanément** (Linux, macOS, Windows) que vous possédez ou contrôlez. L'application Android est un produit distinct distribué via le Google Play Store et n'est pas couvert par cette licence desktop.
+
+## 3. Restrictions
+
+Vous ne pouvez pas :
+
+- Partager, vendre ou transférer votre clé de licence Pro à une autre personne
+- Tenter d'effectuer de la rétro-ingénierie, décompiler ou contourner la validation de licence Pro
+- Utiliser les fonctionnalités Pro sur plus de 3 appareils desktop simultanément
+
+## 4. Clés de licence
+
+Les clés de licence sont liées à l'adresse e-mail utilisée lors de l'achat. Chaque activation consomme un emplacement (maximum 3). Si vous réinstallez votre système d'exploitation sans désactiver d'abord, cet emplacement reste consommé — désactivez depuis un autre appareil actif pour le libérer avant de réinstaller.
+
+## 5. Mises à jour
+
+Un achat Pro est **unique — la version achetée fonctionne à vie**, sans expiration des fonctionnalités Pro ni renouvellement requis. Nous pourrons publier des mises à jour gratuites de temps à autre. Une future version majeure (« Commandeck 2 ») serait un achat séparé et optionnel ; toute version déjà achetée reste à vous et continue de fonctionner.
+
+## 6. Absence de garantie
+
+Le Logiciel est fourni « tel quel », sans garantie d'aucune sorte. Vous l'utilisez à vos propres risques. L'auteur n'est pas responsable des dommages causés par l'utilisation ou l'impossibilité d'utiliser le Logiciel.
+
+## 7. Limitation de responsabilité
+
+Dans toute la mesure permise par le droit applicable, en aucun cas l'auteur ne pourra être tenu responsable de dommages indirects, accessoires, spéciaux, punitifs ou consécutifs découlant de l'utilisation, ou de l'impossibilité d'utiliser, le Logiciel — y compris, sans s'y limiter, perte de données, perte de profits, interruption d'activité ou dommages aux systèmes distants causés par des commandes émises par l'utilisateur — même si l'auteur a été informé de la possibilité de tels dommages.
+
+La responsabilité totale cumulée de l'auteur pour tout dommage direct, quelle que soit la cause d'action (contrat, délit, responsabilité stricte ou autre), n'excédera pas le montant que vous avez payé pour le Logiciel au cours des douze (12) mois précédant l'événement à l'origine de la réclamation. Pour les utilisateurs de la version gratuite n'ayant pas payé pour le Logiciel, le Logiciel est fourni « TEL QUEL » sans aucune garantie, et l'auteur ne pourra être tenu d'aucune responsabilité.
+
+Certaines juridictions n'autorisent pas l'exclusion de certaines garanties ou la limitation de responsabilité pour dommages consécutifs ou accessoires. Dans ces juridictions, la responsabilité est limitée au montant le plus faible autorisé par le droit applicable.
+
+## 8. Vos responsabilités
+
+Commandeck est un **lanceur** : il exécute les commandes que **vous** créez, exactement telles que vous les écrivez, en local ou via SSH. Il ne valide, n'isole, ne vérifie ni ne restreint ces commandes.
+
+Vous êtes seul responsable :
+
+- Des commandes que vous créez, exécutez, planifiez ou laissez un assistant IA exécuter via l'intégration MCP, et de toutes leurs conséquences — y compris perte de données, dommages au système, interruptions, ou effets sur des systèmes distants ou tiers.
+- De la conservation de vos propres sauvegardes des données importantes.
+- De vous assurer que vous êtes autorisé à exécuter des commandes sur toute machine que vous ciblez, et à vous y connecter.
+
+N'exécutez pas de commandes que vous ne comprenez pas.
+
+## 9. Indemnisation
+
+Dans toute la mesure permise par le droit applicable, vous acceptez d'indemniser et de dégager l'auteur de toute responsabilité à l'égard de toute réclamation, demande, dommage, perte, responsabilité et frais (y compris les frais juridiques raisonnables) découlant de ou liés à : votre utilisation ou mauvaise utilisation du Logiciel ; les commandes que vous exécutez par son intermédiaire ; votre violation des présentes Conditions ; ou votre violation d'une loi ou d'un droit de tiers.
+
+## 10. Usage acceptable et activités à haut risque
+
+Vous ne pouvez pas utiliser le Logiciel à des fins illégales, pour accéder à des systèmes auxquels vous n'êtes pas autorisé à accéder, ni d'une manière qui enfreint le droit applicable.
+
+Le Logiciel est un logiciel de bureau à usage général. Il **n'est pas** conçu ni destiné à être utilisé dans des environnements à haut risque ou critiques pour la sécurité — y compris maintien en vie, dispositifs médicaux, installations nucléaires, systèmes aériens ou de contrôle aérien, ou tout environnement où une défaillance pourrait entraîner la mort, des blessures, ou des dommages physiques ou environnementaux graves. Vous assumez tout risque découlant d'un tel usage.
+
+## 11. Admissibilité
+
+Vous devez avoir atteint l'âge de la majorité dans votre juridiction et être en mesure de conclure un contrat juridiquement contraignant pour utiliser le Logiciel ou acheter une licence Pro.
+
+## 12. Droit applicable
+
+Ces conditions sont régies par les lois de la province de Québec, Canada, sans égard à ses règles de conflit de lois. Les parties se soumettent à la compétence exclusive des tribunaux situés au Québec, Canada, dans la mesure permise par le droit impératif applicable en matière de protection des consommateurs.
+
+## 13. Intégralité de l'accord ; divisibilité
+
+Les présentes Conditions, ainsi que la Politique de confidentialité et la Politique de remboursement, constituent l'intégralité de l'accord entre vous et l'auteur concernant le Logiciel et remplacent toute entente antérieure. Si une disposition est jugée invalide ou inapplicable, les dispositions restantes demeurent pleinement en vigueur, et la disposition inapplicable sera appliquée dans toute la mesure permise par la loi. Le fait que l'auteur n'exerce pas un droit ou une disposition ne constitue pas une renonciation à ce droit ou à cette disposition.
+
+## 14. Modifications des présentes conditions
+
+Nous nous réservons le droit de modifier ces Conditions à tout moment, à notre seule discrétion. Les modifications prennent effet dès leur publication sur cette page. La date « Dernière mise à jour » en haut de cette page reflète la révision la plus récente. Votre utilisation continue du Logiciel après la publication de modifications vaut acceptation des Conditions révisées. Nous vous encourageons à consulter cette page régulièrement.
+
+## 15. Contact
+
+Pour toute question relative à ces conditions : [neurocontrarian@gmail.com](mailto:neurocontrarian@gmail.com)
