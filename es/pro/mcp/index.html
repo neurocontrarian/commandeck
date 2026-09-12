@@ -1,0 +1,2912 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A visual command launcher for Linux, macOS and Windows — run local and SSH commands with one click.">
+      
+      
+      
+        <link rel="canonical" href="https://commandeck.app/es/pro/mcp/">
+      
+      
+        <link rel="prev" href="../backup/">
+      
+      
+        <link rel="next" href="../activating-your-license/">
+      
+      
+        
+          <link rel="alternate" href="../../../pro/mcp/" hreflang="en">
+        
+          <link rel="alternate" href="../../../fr/pro/mcp/" hreflang="fr">
+        
+          <link rel="alternate" href="./" hreflang="es">
+        
+          <link rel="alternate" href="../../../it/pro/mcp/" hreflang="it">
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Integración con IA (MCP) - Commandeck</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/commandeck.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  
+  <meta name="google-site-verification" content="N3b806AuJbI0C5L-7WzWkkYJ-CLtMSQhXr9Waamvksw" />
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Commandeck" />
+  <meta property="og:title" content="Commandeck — your server commands, one tap away" />
+  <meta property="og:description" content="A desktop app for Windows, macOS and Linux that turns your shell and SSH commands into a grid of clickable buttons. Private by design — nothing leaves your device, no account, no cloud." />
+  <meta property="og:image" content="https://commandeck.app/assets/og-cover.png" />
+  <meta property="og:url" content="https://commandeck.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Commandeck — your server commands, one tap away" />
+  <meta name="twitter:description" content="Turn your shell and SSH commands into clickable buttons. Private by design — nothing leaves your device, no account, no cloud." />
+  <meta name="twitter:image" content="https://commandeck.app/assets/og-cover.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Commandeck",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, macOS, Windows",
+    "url": "https://commandeck.app",
+    "downloadUrl": "https://commandeck.app/download/",
+    "softwareHelp": "https://commandeck.app",
+    "description": "Commandeck is a cross-platform desktop app that turns shell and SSH commands into a grid of clickable buttons. Click once and the command runs locally or over SSH, with the output in a window. Private by design — nothing leaves your device, no account, no cloud, no telemetry.",
+    "author": {
+      "@type": "Person",
+      "name": "neurocontrarian"
+    },
+    "license": "https://commandeck.app/legal/terms/",
+    "isAccessibleForFree": true,
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Commandeck (free)",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free, private desktop app: unlimited local command buttons."
+      },
+      {
+        "@type": "Offer",
+        "name": "Commandeck Pro",
+        "price": "29",
+        "priceCurrency": "USD",
+        "description": "SSH machines, multi-machine buttons, custom themes, backup, and an MCP server for AI integration. $29 one-time, lifetime license. 14-day free trial."
+      }
+    ]
+  }
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integracion-con-ia-mcp" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../" title="Commandeck" class="md-header__button md-logo" aria-label="Commandeck" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Commandeck
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integración con IA (MCP)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../pro/mcp/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../fr/pro/mcp/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../it/pro/mcp/" hreflang="it" class="md-select__link">
+              Italiano
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/neurocontrarian/commandeck" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    neurocontrarian/commandeck
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../download/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Descargar
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../android-beta/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Beta de Android
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+  Primeros pasos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../how-to/restart-jellyfin-plex-without-terminal/" class="md-tabs__link">
+          
+  
+  
+  Tareas del día a día
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../packs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Packs de botones
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../use-cases/" class="md-tabs__link">
+          
+  
+  
+  Casos de uso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Funciones Pro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/main-window/" class="md-tabs__link">
+          
+  
+  
+  Referencia
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../legal/terms/" class="md-tabs__link">
+          
+  
+  
+  Aviso legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Commandeck" class="md-nav__button md-logo" aria-label="Commandeck" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Commandeck
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/neurocontrarian/commandeck" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    neurocontrarian/commandeck
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descargar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android-beta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beta de Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeros pasos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Primeros pasos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio rápido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preguntas frecuentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tareas del día a día
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tareas del día a día
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/restart-jellyfin-plex-without-terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reiniciar Jellyfin o Plex sin terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/manage-home-server-from-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestionar tu servidor doméstico desde Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/docker-commands-one-click-buttons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos Docker como botones de un clic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/plex-not-showing-new-movies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ¿Plex no muestra tus películas nuevas?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/plex-using-all-cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ¿Plex se come todo el procesador?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/check-disk-space-nas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ver el espacio libre del NAS en un clic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to/update-server-without-ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actualizar el servidor sin entrar por SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packs de botones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casos de uso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de uso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/home-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de un servidor doméstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/dev-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flujo de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/homelab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestionar un parque homelab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/batocera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batocera (juegos retro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/jellyfin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servidor multimedia Jellyfin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/local-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pilotar Commandeck desde una IA local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/beginner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía para principiantes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funciones Pro
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Funciones Pro
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH y multimáquina
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multiselect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Selección múltiple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../themes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copia de seguridad y restauración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integración con IA (MCP)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integración con IA (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-activa-el-acceso-mcp-en-commandeck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1 — Activa el acceso MCP en Commandeck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-encuentra-tu-comando-mcp-de-commandeck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2 — Encuentra tu comando MCP de Commandeck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-configura-tu-cliente-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3 — Configura tu cliente de IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensaje-de-sistema-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensaje de sistema recomendado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-puede-hacer-tu-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué puede hacer tu IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permitir-que-la-ia-ejecute-botones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permitir que la IA ejecute botones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../activating-your-license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Activar tu licencia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licencia y dispositivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referencia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/main-window/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ventana principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/button-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editor de botones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/preferences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preferencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/ssh-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Máquinas SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/execution-profiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perfiles de ejecución
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/command-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables de comando
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aviso legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aviso legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Términos del servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Política de privacidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/refund/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Política de reembolso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-activa-el-acceso-mcp-en-commandeck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1 — Activa el acceso MCP en Commandeck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-encuentra-tu-comando-mcp-de-commandeck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2 — Encuentra tu comando MCP de Commandeck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-configura-tu-cliente-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3 — Configura tu cliente de IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensaje-de-sistema-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensaje de sistema recomendado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-puede-hacer-tu-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué puede hacer tu IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permitir-que-la-ia-ejecute-botones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permitir que la IA ejecute botones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="integracion-con-ia-mcp">Integración con IA (MCP)</h1>
+<div class="admonition warning">
+<p class="admonition-title">Experimental</p>
+<p>La integración con IA es experimental. El soporte de herramientas y el comportamiento cambian según el modelo y el cliente. Los resultados no están garantizados: revisa siempre lo que la IA crea o modifica.</p>
+</div>
+<p>Commandeck incluye un servidor MCP (Model Context Protocol). Una vez configurado, tu asistente de IA puede leer y gestionar tus botones directamente, sin copiar y pegar y sin explicarle tu instalación.</p>
+<blockquote>
+<p><em>«Añade un botón llamado "Reiniciar Nginx" que ejecute <code>sudo systemctl restart nginx</code> en la categoría Servidor»</em></p>
+</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Necesita Commandeck 2.0.17 o posterior (Pro)</p>
+<p>MCP es una función <strong>Pro</strong>. Las instrucciones de abajo arrancan el servidor desde la propia aplicación con <code>--mcp-server</code>, disponible a partir de la <strong>2.0.17</strong>. Mira tu versión en <strong>Menú ☰ → Acerca de</strong>.</p>
+</div>
+<h2 id="paso-1-activa-el-acceso-mcp-en-commandeck">Paso 1 — Activa el acceso MCP en Commandeck</h2>
+<p>MCP está <strong>desactivado de fábrica</strong>. Actívalo una vez:</p>
+<p><strong>Preferencias → Integración con el escritorio → Permitir el acceso MCP</strong></p>
+<p><img alt="Preferencias — interruptor de acceso MCP" src="../../../assets/preferences-mcp.png" /></p>
+<h2 id="paso-2-encuentra-tu-comando-mcp-de-commandeck">Paso 2 — Encuentra tu comando MCP de Commandeck</h2>
+<p>El servidor MCP va incluido en la aplicación: se arranca ejecutando Commandeck con el parámetro <code>--mcp-server</code>. El comando exacto depende de cómo lo hayas instalado. Busca el tuyo aquí abajo; lo usarás en tu cliente de IA en el paso 3.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux (AppImage)</label><label for="__tabbed_1_2">macOS</label><label for="__tabbed_1_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Es la instalación más habitual. Usa el AppImage <strong>Pro</strong> (MCP es una función Pro) y asegúrate de que es ejecutable (<code>chmod +x</code> una vez):</p>
+<div class="highlight"><pre><span></span><code>/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage<span class="w"> </span>--mcp-server
+</code></pre></div>
+<p>Usa <em>tu</em> nombre de archivo y tu ruta reales (la descarga lleva la versión y la arquitectura en el nombre). Truco: arrastra el AppImage a una terminal para obtener su ruta completa.</p>
+</div>
+<div class="tabbed-block">
+<p>El ejecutable está dentro del paquete <code>.app</code>:</p>
+<div class="highlight"><pre><span></span><code>/Applications/Commandeck.app/Contents/MacOS/Commandeck<span class="w"> </span>--mcp-server
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Usa la ruta donde instalaste Commandeck (entre comillas si contiene espacios):</p>
+<div class="highlight"><pre><span></span><code><span class="s2">"C:\Program Files\Commandeck\Commandeck.exe"</span> <span class="p">-</span><span class="n">-mcp-server</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Pruébalo una vez</p>
+<p>Al ejecutar el comando directamente debería quedarse esperando entrada (habla JSON-RPC por la entrada y la salida estándar): eso significa que funciona. Pulsa <code>Ctrl+C</code> para salir. Si escribe <em>«the MCP server requires Commandeck Pro»</em>, estás usando la versión gratuita.</p>
+</div>
+<p>En el resto de esta página, <strong><code>&lt;tu comando de Commandeck&gt;</code></strong> significa el ejecutable de este paso (por ejemplo, la ruta del AppImage), y <strong><code>--mcp-server</code></strong> es su parámetro.</p>
+<h2 id="paso-3-configura-tu-cliente-de-ia">Paso 3 — Configura tu cliente de IA</h2>
+<p>Elige tu herramienta abajo. La configuración se hace una vez; después funciona sola.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Claude Desktop</label><label for="__tabbed_2_2">Claude Code</label><label for="__tabbed_2_3">Cursor</label><label for="__tabbed_2_4">Windsurf</label><label for="__tabbed_2_5">Continue.dev</label><label for="__tabbed_2_6">Open WebUI (llama.cpp / Ollama)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Ubicación del archivo de configuración:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Ruta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>~/.config/Claude/claude_desktop_config.json</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%APPDATA%\Claude\claude_desktop_config.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Añade esto al archivo (créalo si no existe), con tu comando del paso 2:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"commandeck"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"--mcp-server"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>En macOS, <code>command</code> sería <code>/Applications/Commandeck.app/Contents/MacOS/Commandeck</code>; en Windows, la ruta completa a <code>Commandeck.exe</code>. Reinicia Claude Desktop: Commandeck aparece como herramienta conectada.</p>
+</div>
+<div class="tabbed-block">
+<p>Ejecuta esto una vez en una terminal (cambia el comando por el tuyo):</p>
+<div class="highlight"><pre><span></span><code>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>commandeck<span class="w"> </span>/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage<span class="w"> </span>--mcp-server
+</code></pre></div>
+<p>Para comprobarlo: <code>claude mcp list</code></p>
+</div>
+<div class="tabbed-block">
+<p>Edita <code>~/.cursor/mcp_config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"commandeck"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"--mcp-server"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Reinicia Cursor.</p>
+</div>
+<div class="tabbed-block">
+<p>Edita <code>~/.codeium/windsurf/mcp_config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"commandeck"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"--mcp-server"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Reinicia Windsurf.</p>
+</div>
+<div class="tabbed-block">
+<p>Añade esto a <code>.continue/config.yaml</code> en tu proyecto:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">mcpServers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">commandeck</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage</span>
+<span class="w">    </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--mcp-server</span>
+</code></pre></div>
+<p>Las herramientas MCP solo están disponibles en <strong>modo Agente</strong>.</p>
+</div>
+<div class="tabbed-block">
+<p>Open WebUI se conecta a las herramientas por HTTP, no por stdio. Usa <a href="https://github.com/open-webui/mcpo">mcpo</a> (el proxy oficial de Open WebUI) para hacer de puente con Commandeck.</p>
+<div class="admonition warning">
+<p class="admonition-title">Ejecuta mcpo con el mismo usuario que usa Commandeck</p>
+<p>El servidor lee los botones de <strong>quien lo arranca</strong>. Cada usuario de Linux o macOS tiene su propia configuración de Commandeck (<code>~/.config/commandeck</code>). Si ejecutas mcpo con un usuario distinto del que usas para Commandeck, la IA verá el conjunto de botones <em>equivocado</em> (o vacío). Arranca mcpo desde una terminal abierta con tu usuario habitual de escritorio.</p>
+</div>
+<p><strong>Paso 1 — Instala mcpo (una vez):</strong></p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>mcpo
+<span class="c1"># ¿sin pipx? un entorno virtual también funciona bien:</span>
+<span class="c1">#   python3 -m venv ~/.mcpo-venv &amp;&amp; ~/.mcpo-venv/bin/pip install mcpo</span>
+<span class="c1"># (`pip install mcpo` a secas suele fallar en Linux con "externally-managed-environment")</span>
+</code></pre></div>
+<p><strong>Paso 2 — Averigua la IP local de la máquina donde corre Commandeck (solo si Open WebUI está en otra máquina):</strong></p>
+<div class="highlight"><pre><span></span><code>hostname<span class="w"> </span>-I<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $1}'</span>
+</code></pre></div>
+<p>Apunta esa IP: la necesitarás en el paso 4.</p>
+<p><strong>Paso 3 — Arranca el proxy (deja esta terminal abierta):</strong></p>
+<div class="highlight"><pre><span></span><code>mcpo<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--<span class="w"> </span>/ruta/completa/a/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage<span class="w"> </span>--mcp-server
+</code></pre></div>
+<p>Deberías ver: <code>Uvicorn running on http://0.0.0.0:8000</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Cuidado con los saltos de línea al pegar</p>
+<p>Mantén el comando en <strong>una sola línea</strong>. Si al pegarlo se parte en varias líneas rotas, guárdalo mejor como un pequeño guion: crea <code>start-mcpo.sh</code> con la línea de arriba y ejecuta <code>bash start-mcpo.sh</code>.</p>
+</div>
+<p><strong>Paso 4 — Añade el servidor de herramientas en Open WebUI:</strong></p>
+<p>Ve a <strong>Panel de administración → Ajustes → Herramientas</strong> (en versiones antiguas: <em>Integraciones → Gestionar servidores de herramientas</em>) → <strong><code>+</code></strong> y rellena:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo</td>
+<td><strong>OpenAPI</strong></td>
+</tr>
+<tr>
+<td>Nombre</td>
+<td><code>commandeck</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://&lt;ip-del-paso-2&gt;:8000</code></td>
+</tr>
+<tr>
+<td>Autenticación</td>
+<td>Ninguna</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Usa la IP de la máquina, no localhost</p>
+<p>Si Open WebUI corre en otra máquina (por ejemplo, un servidor de casa), <code>localhost</code> apuntaría a ese servidor y no a la máquina donde está mcpo. Usa la IP del paso 2. Desde la máquina de Open WebUI puedes comprobar la ruta con <code>curl http://&lt;esa-ip&gt;:8000/openapi.json</code> (debería devolver JSON). Si no, abre el puerto 8000 en el cortafuegos de la máquina donde corre mcpo.</p>
+</div>
+<p><strong>Paso 5 — Activa la herramienta en una conversación:</strong></p>
+<p>Empieza una conversación nueva, pulsa el icono <strong><code>+</code></strong> (herramientas) junto al campo de texto y activa <strong>commandeck</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Esto funciona con cualquier motor compatible con Open WebUI: llama.cpp, Ollama, APIs compatibles con OpenAI, etc. La capa de herramientas no depende del modelo. El soporte de llamadas a herramientas varía según el modelo: los ajustados a instrucciones suelen funcionar mejor; los modelos locales pequeños pueden necesitar el <a href="#recommended-system-prompt">mensaje de sistema</a> de abajo para llamarlas de forma fiable.</p>
+</div>
+<hr />
+<p><strong>Cuándo hay que reiniciar mcpo</strong></p>
+<p>mcpo arranca el servidor MCP de Commandeck como subproceso al iniciarse y lee su lista de herramientas <strong>una sola vez</strong>. Reinicia mcpo cada vez que:</p>
+<ul>
+<li><strong>Actives o desactives «Permitir el acceso MCP»</strong> en Preferencias (si arrancas mcpo antes de activarlo, ve cero herramientas)</li>
+<li>Actualices Commandeck a una versión nueva</li>
+</ul>
+<p>Para reiniciarlo: pulsa <code>Ctrl+C</code> en la terminal de mcpo y vuelve al paso 3; o, con el servicio de systemd de abajo, <code>systemctl --user restart mcpo-commandeck</code>.</p>
+<hr />
+<p><strong>Paso 6 — (Opcional) Que mcpo sobreviva a los reinicios</strong></p>
+<p>Crea un servicio de usuario de systemd para que mcpo arranque solo al iniciar sesión (ejecútalo <strong>con tu usuario habitual de escritorio</strong>):</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user
+cat<span class="w"> </span>&gt;<span class="w"> </span>~/.config/systemd/user/mcpo-commandeck.service<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+<span class="s">[Unit]</span>
+<span class="s">Description=mcpo proxy for the Commandeck MCP server</span>
+
+<span class="s">[Service]</span>
+<span class="s">ExecStart=%h/.local/bin/mcpo --port 8000 -- %h/Apps/Commandeck-Pro-2.0.17-Linux-x86_64.AppImage --mcp-server</span>
+<span class="s">Restart=on-failure</span>
+<span class="s">RestartSec=5</span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=default.target</span>
+<span class="s">EOF</span>
+
+systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
+systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mcpo-commandeck
+</code></pre></div>
+<p>Comandos útiles:</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>--user<span class="w"> </span>status<span class="w"> </span>mcpo-commandeck<span class="w">    </span><span class="c1"># ver el estado</span>
+systemctl<span class="w"> </span>--user<span class="w"> </span>restart<span class="w"> </span>mcpo-commandeck<span class="w">   </span><span class="c1"># reiniciar tras activar MCP o actualizar</span>
+systemctl<span class="w"> </span>--user<span class="w"> </span>stop<span class="w"> </span>mcpo-commandeck<span class="w">      </span><span class="c1"># parar</span>
+journalctl<span class="w"> </span>--user<span class="w"> </span>-u<span class="w"> </span>mcpo-commandeck<span class="w"> </span>-f<span class="w">    </span><span class="c1"># registros en vivo</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ajusta las rutas de <code>ExecStart</code>: apunta a <em>tu</em> AppImage y ejecuta <code>which mcpo</code> para saber dónde está mcpo si no es <code>~/.local/bin/mcpo</code> (por ejemplo, dentro de un entorno virtual).</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="mensaje-de-sistema-recomendado">Mensaje de sistema recomendado</h2>
+<p>Pega el texto de abajo en el campo de mensaje de sistema de tu cliente de IA. Prepara al modelo para que llame primero a <code>help</code>, siga los flujos de búsqueda correctos y descomponga los comandos complejos en piezas de Commandeck en lugar de pegarlos tal cual.</p>
+<div class="admonition note">
+<p class="admonition-title">Se deja en inglés a propósito</p>
+<p>Este texto va dirigido al modelo, no a ti. Los nombres de las herramientas y los campos son ingleses: tradúcelo y las llamadas se vuelven menos fiables.</p>
+</div>
+<div class="highlight"><pre><span></span><code>You are an assistant for Commandeck, a desktop application on Linux, macOS or Windows. Commandeck
+lets the user run commands by clicking buttons, like a remote control. You can create, read,
+and modify the user's buttons, machines, and profiles using your tools.
+
+Rules:
+- Before doing anything, call the help tool to read the instructions.
+- When the user explicitly names a button, use get_button(name="X") directly. When you don't
+  know the exact name, use list_buttons.
+- Never call get_button before create_button.
+- For buttons: a duplicate means SAME NAME, not same command. If no button has the exact same
+  name, create it without asking.
+- For machines: a duplicate means SAME HOST address. Always call list_machines and check by
+  host before creating.
+- For profiles: a duplicate means same name. Call list_profiles before creating.
+- When asked to change a property, always apply the change. Never decide the current value is
+  already acceptable.
+- In multi-step requests, if a required resource exists, use it and proceed.
+- When you need a machine ID or profile ID, always look it up first.
+- Write each command in the right shell for its target: PowerShell or cmd for a Windows machine,
+  bash/sh for Linux or macOS. Set the button's os field to match. Check each machine's os with
+  list_machines; for a local button (no machine) use this computer's OS. Never give a Windows
+  machine a bash command, or a Linux/macOS machine a PowerShell command.
+- The user can install ready-made button packs from the gallery: call list_packs to see what is
+  available and what has updates, then install_pack / update_pack / uninstall_pack to manage them.
+
+When a user asks you to add or refactor a shell command, decompose it before creating a button:
+1. `cd /some/path` → Execution Profile working_dir (strip from command)
+2. `sudo -u user` wrapper → run_as_user on the profile or button's run_as field
+   (strip the wrapper, keep the inner command)
+3. Opens an interactive shell (bash, zsh, exec bash) → execution_mode = "terminal"
+4. Produces output the user wants to read → execution_mode = "output"; fire-and-forget → "silent"
+5. What remains after stripping context wrappers is the command field.
+
+Example: `sudo -u www-data bash -c 'cd /var/www/myapp &amp;&amp; git pull'`
+→ Create Profile: name="Web Deploy", run_as_user="www-data", working_dir="/var/www/myapp"
+→ Create button: command="git pull", execution_mode="output", assign that profile
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Open WebUI</label><label for="__tabbed_3_2">Claude Desktop</label><label for="__tabbed_3_3">Otros clientes</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>En Open WebUI, ve a <strong>Panel de administración → Ajustes → Mensaje de sistema</strong> y pega el texto de arriba (o ponlo en el mensaje de sistema de la conversación, dentro de los ajustes del modelo).</p>
+</div>
+<div class="tabbed-block">
+<p>Claude Desktop no ofrece un campo de mensaje de sistema. La descripción de la herramienta <code>help</code> se explica por sí sola para Claude: no hace falta ningún texto extra.</p>
+</div>
+<div class="tabbed-block">
+<p>Pega el texto en el campo de mensaje de sistema o de instrucciones que ofrezca tu cliente, antes de empezar la conversación.</p>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="que-puede-hacer-tu-ia">Qué puede hacer tu IA</h2>
+<p><strong>Botones</strong></p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>help</code></td>
+<td>Devuelve la guía completa de trabajo: hay que llamarla siempre primero</td>
+</tr>
+<tr>
+<td><code>list_buttons</code></td>
+<td>Enumera todos los botones, con filtro opcional por categoría</td>
+</tr>
+<tr>
+<td><code>get_button</code></td>
+<td>Da los detalles de un botón por nombre o identificador</td>
+</tr>
+<tr>
+<td><code>create_button</code></td>
+<td>Crea un botón nuevo (nombre, comando, categoría, color, icono, modo de ejecución, perfil, máquinas…)</td>
+</tr>
+<tr>
+<td><code>update_button</code></td>
+<td>Modifica cualquier campo de un botón existente; llama antes a <code>get_button</code> para obtener su identificador</td>
+</tr>
+<tr>
+<td><code>execute_button</code></td>
+<td>Ejecuta el comando de un botón y devuelve su salida (desactivado de fábrica; consulta <a href="#allowing-ai-to-run-buttons">Permitir que la IA ejecute botones</a>)</td>
+</tr>
+<tr>
+<td><code>delete_button</code></td>
+<td>Borra un botón por su identificador</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Categorías</strong></p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_categories</code></td>
+<td>Enumera los nombres de todas las categorías</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Máquinas SSH</strong> <em>(función Pro)</em></p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_machines</code></td>
+<td>Enumera las máquinas SSH configuradas (nombre, anfitrión, usuario, puerto; nunca las claves privadas)</td>
+</tr>
+<tr>
+<td><code>create_machine</code></td>
+<td>Añade una máquina SSH</td>
+</tr>
+<tr>
+<td><code>update_machine</code></td>
+<td>Renombra o reconfigura una máquina SSH; llama antes a <code>list_machines</code> para obtener su identificador</td>
+</tr>
+<tr>
+<td><code>delete_machine</code></td>
+<td>Borra una máquina SSH por su identificador</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perfiles de ejecución</strong> <em>(función Pro)</em></p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_profiles</code></td>
+<td>Enumera todos los perfiles de ejecución</td>
+</tr>
+<tr>
+<td><code>get_profile</code></td>
+<td>Da los detalles de un perfil por nombre o identificador</td>
+</tr>
+<tr>
+<td><code>create_profile</code></td>
+<td>Crea un perfil reutilizable (usuario de ejecución, carpeta de trabajo)</td>
+</tr>
+<tr>
+<td><code>update_profile</code></td>
+<td>Modifica un perfil existente; llama antes a <code>get_profile</code> para obtener su identificador</td>
+</tr>
+<tr>
+<td><code>delete_profile</code></td>
+<td>Borra un perfil por su identificador</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Packs de botones</strong> — conjuntos ya preparados, desde la galería pública</p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_packs</code></td>
+<td>Enumera los packs de la galería, con las marcas <code>installed</code> y <code>update_available</code></td>
+</tr>
+<tr>
+<td><code>install_pack</code></td>
+<td>Instala un pack en unas máquinas (solo packs con firma verificada)</td>
+</tr>
+<tr>
+<td><code>update_pack</code></td>
+<td>Actualiza un pack instalado conservando tus cambios, tus destinos y tus posiciones</td>
+</tr>
+<tr>
+<td><code>uninstall_pack</code></td>
+<td>Quita todos los botones de un pack</td>
+</tr>
+<tr>
+<td><code>export_pack</code></td>
+<td>Exporta los botones elegidos a un archivo <code>.cdpack</code> que se puede compartir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variables</strong></p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_variable_values</code></td>
+<td>Enumera tus valores guardados para las <code>{{variables}}</code> de los comandos</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Revisa antes de borrar</p>
+<p><code>delete_button</code>, <code>delete_machine</code> y <code>delete_profile</code> están disponibles por MCP. Verifica siempre el elemento correcto con <code>get_button</code> o <code>list_machines</code> antes de pedirle a tu IA que borre nada.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Refrescar la cuadrícula tras los cambios de la IA</p>
+<p>Cuando la IA crea o modifica un botón, pulsa <strong>F5</strong> (o menú → Recargar los botones) para refrescar la cuadrícula sin reiniciar Commandeck.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Consejo para modificar botones</p>
+<p>Si la IA dice que no puede modificar un botón, pídele que llame primero a <code>get_button</code> con el nombre del botón para obtener su identificador y luego a <code>update_button</code> con ese identificador.</p>
+</div>
+<hr />
+<h2 id="permitir-que-la-ia-ejecute-botones">Permitir que la IA ejecute botones</h2>
+<p>De fábrica, tu IA puede <strong>leer y editar</strong> botones, pero no <strong>ejecutarlos</strong>. Para dejarle disparar comandos de verdad tienes que dar tu permiso en tres niveles; con que uno esté desactivado, la ejecución se bloquea.</p>
+<p><strong>1. Interruptor general</strong> — <em>Preferencias → Integración con el escritorio → Permitir la ejecución por la IA</em></p>
+<p>Desactivado de fábrica. Es el interruptor maestro de toda la función.</p>
+<p><strong>2. Permiso por botón</strong> — <em>Editar un botón → Comportamiento → Permitir que la IA ejecute este botón</em></p>
+<p>Desactivado de fábrica en todos los botones, incluidos los que ya tenías. Actívalo solo en los botones cuyos comandos te resulte cómodo dejar en manos de una IA: comprobaciones de solo lectura (<code>df -h</code>, <code>systemctl status</code>), operaciones que se pueden repetir sin daño, despliegues seguros.</p>
+<p><strong>3. Confirmación</strong> — <em>Editar un botón → Comportamiento → Confirmar antes de ejecutar</em></p>
+<p>Con esto activado, la IA no puede ejecutar el botón en silencio. Recibe una respuesta <code>requires_confirmation</code> con el comando exacto y la instrucción de enseñártelo y esperar tu aprobación antes de volver a llamar con <code>confirmed=true</code>. Recomendado para cualquier comando delicado (reinicios, borrados, sudo).</p>
+<p><strong>Registro de auditoría:</strong> cada ejecución por MCP se añade a <code>~/.config/commandeck/.mcp_executions.log</code> con la fecha y hora, el nombre del botón, la máquina de destino, el código de salida y la duración.</p>
+<p><strong>Limitaciones:</strong></p>
+<ul>
+<li>Los botones en modo <code>Abrir en terminal</code> no se pueden ejecutar por MCP: no hay ninguna terminal en un contexto de IA sin interfaz. La IA recibe un error si lo intenta.</li>
+<li>La salida que se devuelve a la IA está limitada (4 KB de salida estándar y 2 KB de errores) para no llenar su contexto. La salida completa sigue estando en el registro si la necesitas.</li>
+<li>Los botones con varios destinos obligan a la IA a indicar en qué máquina ejecutar. Si no lo hace, el servidor le devuelve la lista de destinos válidos y le pide que aclare.</li>
+</ul>
+<hr />
+<h2 id="seguridad">Seguridad</h2>
+<p>El servidor MCP usa <strong>transporte stdio</strong>: cuando un cliente (Claude Desktop, Cursor…) lo arranca directamente, funciona como subproceso y se comunica solo por la entrada y la salida estándar. No se abre ningún puerto de red, y solo el proceso que lo arrancó puede hablar con él.</p>
+<p>Cuando usas <strong>mcpo</strong> (Open WebUI) <em>sí</em> se abre un puerto HTTP (el 8000) en la máquina donde corre mcpo. Asegúrate de que ese puerto no queda expuesto a redes en las que no confías: déjalo en tu red local, detrás del cortafuegos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Con el acceso MCP activado, tu asistente de IA puede crear, modificar y borrar botones. Desactiva el interruptor en Preferencias cuando no lo necesites. La <strong>ejecución</strong> de botones es una función aparte que hay que autorizar; consulta <a href="#allowing-ai-to-run-buttons">Permitir que la IA ejecute botones</a>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../backup/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Copia de seguridad y restauración">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Copia de seguridad y restauración
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../activating-your-license/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Activar tu licencia">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Activar tu licencia
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 neurocontrarian &mdash; <a href="/legal/terms/">Terms</a> &middot; <a href="/legal/privacy/">Privacy</a> &middot; <a href="/legal/refund/">Refunds</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/neurocontrarian/commandeck" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
