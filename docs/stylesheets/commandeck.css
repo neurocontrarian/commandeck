@@ -1,0 +1,111 @@
+/* Commandeck wiki theme — matches the marketing home page (marketing/landing/index.html).
+   Palette: bg #0a0a0f, card #15151f, line #23232f, brand violet #7c5cff, cyan #22d3ee. */
+
+:root {
+  --cdk-grad: linear-gradient(120deg, #7c5cff 0%, #a855f7 45%, #22d3ee 100%);
+  --md-primary-fg-color: #7c5cff;
+  --md-accent-fg-color: #22d3ee;
+}
+
+/* ---- Dark scheme (default) ---- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 250;
+  --md-default-bg-color: #0a0a0f;
+  --md-default-fg-color: rgba(236, 237, 245, 0.92);
+  --md-default-fg-color--light: rgba(236, 237, 245, 0.68);
+  --md-default-fg-color--lighter: rgba(236, 237, 245, 0.40);
+  --md-default-fg-color--lightest: rgba(236, 237, 245, 0.12);
+
+  --md-primary-fg-color: #11111b;
+  --md-primary-fg-color--light: #16161f;
+  --md-primary-fg-color--dark: #0a0a0f;
+  --md-primary-bg-color: #ecedf5;
+  --md-primary-bg-color--light: rgba(236, 237, 245, 0.7);
+
+  --md-accent-fg-color: #22d3ee;
+  --md-typeset-a-color: #9b7bff;
+
+  --md-code-bg-color: #15151f;
+  --md-code-fg-color: #e3e4ef;
+
+  --md-footer-bg-color: #0c0c14;
+  --md-footer-bg-color--dark: #08080d;
+}
+
+/* Header: dark with a hairline, gradient accent under it */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #23232f;
+  box-shadow: none;
+}
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: transparent;
+  border-bottom: 1px solid #23232f;
+}
+
+/* Brand mark on the logo/title */
+.md-header__title { font-weight: 700; letter-spacing: -0.01em; }
+
+/* Cards (grid cards) + admonitions: rounded, card surface */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > .card {
+  background-color: #15151f;
+  border: 1px solid #23232f;
+  border-radius: 16px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+  border-color: #7c5cff;
+  transform: translateY(-3px);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  border-radius: 14px;
+  border-left-width: 3px;
+}
+
+/* Code blocks rounded */
+[data-md-color-scheme="slate"] .md-typeset pre > code,
+[data-md-color-scheme="slate"] .md-typeset .highlight { border-radius: 12px; }
+
+/* Primary buttons → gradient pill (matches the landing CTA) */
+.md-typeset .md-button--primary {
+  background: var(--cdk-grad);
+  border: none;
+  color: #0a0a0f;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 10px 40px rgba(124, 92, 255, 0.30);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.md-typeset .md-button--primary:hover {
+  background: var(--cdk-grad);
+  color: #0a0a0f;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 50px rgba(124, 92, 255, 0.45);
+}
+.md-typeset .md-button {
+  border-radius: 999px;
+  border-color: #23232f;
+}
+
+/* Headings: tighter, brighter */
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  letter-spacing: -0.02em;
+  color: #ecedf5;
+}
+
+/* Gradient text accent for the home H1 if used */
+.cdk-grad-text {
+  background: var(--cdk-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Search + nav active accent */
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__link:focus,
+[data-md-color-scheme="slate"] .md-nav__link:hover { color: #9b7bff; }
