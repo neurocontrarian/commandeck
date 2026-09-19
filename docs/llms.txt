@@ -1,0 +1,39 @@
+# Commandeck
+
+> Commandeck is a cross-platform desktop application (Linux, macOS, Windows) that turns
+> shell and SSH commands into a grid of clickable buttons. Click a button and the command
+> runs — locally or on a remote machine over SSH — with the output shown in a window.
+> It is built for people who want to avoid retyping the same commands, from beginners who
+> want to skip the terminal to sysadmins managing several machines. Configuration is plain
+> local TOML; there is no cloud, no account, and no telemetry.
+
+## What it is
+- A visual command launcher / button-grid dashboard for running shell and SSH commands.
+- Native desktop app (PySide6/Qt), not a web panel and not a hosted service.
+- Proprietary software: a free edition covers local command buttons; a paid Pro tier adds remote/SSH and power features.
+
+## Key facts
+- Platforms: Linux (AppImage), macOS (.dmg), Windows (.exe).
+- Free edition: unlimited local command buttons, categories, icons, colors, default buttons.
+- Pro tier ($29 one-time, lifetime — buy once, yours for good; 14-day free trial, no credit card): SSH machines, multi-machine buttons,
+  multi-select group actions, custom themes, config backup/restore, execution profiles,
+  and an MCP server that lets an AI assistant (cloud or a local model) create and run buttons.
+- Privacy: no cloud, no account, no telemetry; config is plain-text TOML stored locally.
+- The MCP / AI execution is off by default and gated behind three explicit opt-ins and an audit log.
+
+## Typical use cases
+- Beginners running everyday commands (disk usage, updates, reboot) without the terminal.
+- Sysadmins / homelab users running commands across several machines over SSH in one click.
+- Driving the app from a local or cloud AI assistant via the MCP server.
+
+## What makes it different
+- It is a desktop app, not a web panel you host: no server, no container, no exposed port, no
+  YAML config — you install it and click. SSH is built in (one button can run on several machines).
+- Software-only with unlimited on-screen buttons, running full shell/SSH commands (not keystrokes
+  like a hardware keypad).
+- A visual, discoverable, editable grid instead of memorized aliases or scripts.
+- Local and private by design: plain-text config, no cloud, no account, no telemetry.
+
+## Links
+- Website and documentation: https://commandeck.app
+- Download: https://github.com/neurocontrarian/commandeck/releases/latest

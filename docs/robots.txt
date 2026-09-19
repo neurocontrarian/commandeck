@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://commandeck.app/sitemap.xml
