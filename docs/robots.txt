@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /get/
 
 Sitemap: https://commandeck.app/sitemap.xml
