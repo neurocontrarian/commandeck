@@ -1,0 +1,268 @@
+site_name: Commandeck
+site_description: A visual command launcher for Linux, macOS and Windows — run local and SSH commands with one click.
+site_url: https://commandeck.app
+repo_url: https://github.com/neurocontrarian/commandeck
+repo_name: neurocontrarian/commandeck
+
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: assets/favicon.svg
+  logo: assets/favicon.svg
+  font: false   # no Google Fonts — use system fonts (matches the home page, privacy-friendly)
+  palette:
+    - scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/commandeck.css
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fr
+          name: Français
+          build: true
+          nav_translations:
+            Home: Accueil
+            Getting Started: Prise en main
+            Installation: Installation
+            Quick Start: Démarrage rapide
+            Glossary: Glossaire
+            Button Packs: Packs de boutons
+            Reference: Référence
+            Main Window: Fenêtre principale
+            Button Editor: Éditeur de bouton
+            Preferences: Préférences
+            SSH Machines: Machines SSH
+            Execution Profiles: Profils d'exécution
+            Command Variables: Variables de commande
+            Security: Sécurité
+            Use Cases: Cas d'usage
+            Overview: Aperçu
+            Home Server Management: Gestion d'un serveur domestique
+            Development Workflow: Flux de développement
+            Manage a Homelab Fleet: Gérer un parc homelab
+            Batocera Retro Gaming Box: Batocera (rétro-gaming)
+            Jellyfin Media Server: Serveur multimédia Jellyfin
+            Drive Commandeck from a Local AI: Piloter Commandeck depuis une IA locale
+            Beginner Guide: Guide du débutant
+            Everyday Tasks: Tâches du quotidien
+            Restart Jellyfin or Plex Without the Terminal: Redémarrer Jellyfin ou Plex sans terminal
+            Manage Your Home Server From Windows: Gérer son serveur maison depuis Windows
+            Run Docker Commands as One-Click Buttons: Commandes Docker en boutons d'un clic
+            Plex Not Showing New Movies? Make It Look Again: Plex n'affiche pas vos nouveaux films ?
+            Plex Using All Your Processor? Here Is Why: Plex consomme tout votre processeur ?
+            Check Disk Space on Your NAS in One Click: Voir l'espace disque de son NAS en un clic
+            Update Your Server Without SSH-ing In: Mettre à jour son serveur sans SSH
+            Pro Features: Fonctionnalités Pro
+            SSH & Multi-machine: SSH & multi-machines
+            Multi-select: Sélection multiple
+            Themes: Thèmes
+            Backup & Restore: Sauvegarde & restauration
+            AI Integration (MCP): Intégration IA (MCP)
+            Activating your license: Activer votre licence
+            License & Devices: Licence & appareils
+            Legal: Mentions légales
+            Terms of Service: Conditions d'utilisation
+            Privacy Policy: Politique de confidentialité
+            Refund Policy: Politique de remboursement
+
+        - locale: es
+          name: Español
+          build: true
+          nav_translations:
+            Home: Inicio
+            Getting Started: Primeros pasos
+            Installation: Instalación
+            Quick Start: Inicio rápido
+            Glossary: Glosario
+            Button Packs: Packs de botones
+            Reference: Referencia
+            Main Window: Ventana principal
+            Button Editor: Editor de botones
+            Preferences: Preferencias
+            SSH Machines: Máquinas SSH
+            Execution Profiles: Perfiles de ejecución
+            Command Variables: Variables de comando
+            Security: Seguridad
+            Use Cases: Casos de uso
+            Overview: Resumen
+            Home Server Management: Gestión de un servidor doméstico
+            Development Workflow: Flujo de desarrollo
+            Manage a Homelab Fleet: Gestionar un parque homelab
+            Batocera Retro Gaming Box: Batocera (juegos retro)
+            Jellyfin Media Server: Servidor multimedia Jellyfin
+            Drive Commandeck from a Local AI: Pilotar Commandeck desde una IA local
+            Beginner Guide: Guía para principiantes
+            Everyday Tasks: Tareas del día a día
+            Restart Jellyfin or Plex Without the Terminal: Reiniciar Jellyfin o Plex sin terminal
+            Manage Your Home Server From Windows: Gestionar tu servidor doméstico desde Windows
+            Run Docker Commands as One-Click Buttons: Comandos Docker como botones de un clic
+            Plex Not Showing New Movies? Make It Look Again: ¿Plex no muestra tus películas nuevas?
+            Plex Using All Your Processor? Here Is Why: ¿Plex se come todo el procesador?
+            Check Disk Space on Your NAS in One Click: Ver el espacio libre del NAS en un clic
+            Update Your Server Without SSH-ing In: Actualizar el servidor sin entrar por SSH
+            Pro Features: Funciones Pro
+            SSH & Multi-machine: SSH y multimáquina
+            Multi-select: Selección múltiple
+            Themes: Temas
+            Backup & Restore: Copia de seguridad y restauración
+            AI Integration (MCP): Integración con IA (MCP)
+            Activating your license: Activar tu licencia
+            License & Devices: Licencia y dispositivos
+            Legal: Aviso legal
+            Terms of Service: Términos del servicio
+            Privacy Policy: Política de privacidad
+            Refund Policy: Política de reembolso
+            Download: Descargar
+            Android Beta: Beta de Android
+            FAQ: Preguntas frecuentes
+        - locale: it
+          name: Italiano
+          build: true
+          nav_translations:
+            Home: Home
+            Getting Started: Per iniziare
+            Installation: Installazione
+            Quick Start: Avvio rapido
+            Glossary: Glossario
+            Button Packs: Pacchetti di pulsanti
+            Reference: Riferimento
+            Main Window: Finestra principale
+            Button Editor: Editor dei pulsanti
+            Preferences: Preferenze
+            SSH Machines: Macchine SSH
+            Execution Profiles: Profili di esecuzione
+            Command Variables: Variabili di comando
+            Security: Sicurezza
+            Use Cases: Casi d'uso
+            Overview: Panoramica
+            Home Server Management: Gestione di un server domestico
+            Development Workflow: Flusso di sviluppo
+            Manage a Homelab Fleet: Gestire un parco homelab
+            Batocera Retro Gaming Box: Batocera (retrogaming)
+            Jellyfin Media Server: Server multimediale Jellyfin
+            Drive Commandeck from a Local AI: Pilotare Commandeck da un'IA locale
+            Beginner Guide: Guida per principianti
+            Everyday Tasks: Attività di tutti i giorni
+            Restart Jellyfin or Plex Without the Terminal: Riavviare Jellyfin o Plex senza terminale
+            Manage Your Home Server From Windows: Gestire il server di casa da Windows
+            Run Docker Commands as One-Click Buttons: Comandi Docker come pulsanti
+            Plex Not Showing New Movies? Make It Look Again: Plex non mostra i film nuovi?
+            Plex Using All Your Processor? Here Is Why: Plex si mangia tutto il processore?
+            Check Disk Space on Your NAS in One Click: Vedere lo spazio del NAS con un clic
+            Update Your Server Without SSH-ing In: Aggiornare il server senza SSH
+            Pro Features: Funzioni Pro
+            SSH & Multi-machine: SSH e multi-macchina
+            Multi-select: Selezione multipla
+            Themes: Temi
+            Backup & Restore: Backup e ripristino
+            AI Integration (MCP): Integrazione IA (MCP)
+            Activating your license: Attivare la licenza
+            License & Devices: Licenza e dispositivi
+            Legal: Note legali
+            Terms of Service: Termini di servizio
+            Privacy Policy: Informativa sulla privacy
+            Refund Policy: Politica di rimborso
+            Download: Download
+            Android Beta: Beta Android
+            FAQ: FAQ
+
+nav:
+  - Home: index.md
+  - Download: download.md
+  - Android Beta: android-beta.md
+  - Getting Started:
+    - Installation: installation.md
+    - Quick Start: quick-start.md
+    - FAQ: faq.md
+    - Glossary: glossary.md
+  - Everyday Tasks:
+    - Restart Jellyfin or Plex Without the Terminal: how-to/restart-jellyfin-plex-without-terminal.md
+    - Manage Your Home Server From Windows: how-to/manage-home-server-from-windows.md
+    - Run Docker Commands as One-Click Buttons: how-to/docker-commands-one-click-buttons.md
+    - Plex Not Showing New Movies? Make It Look Again: how-to/plex-not-showing-new-movies.md
+    - Plex Using All Your Processor? Here Is Why: how-to/plex-using-all-cpu.md
+    - Check Disk Space on Your NAS in One Click: how-to/check-disk-space-nas.md
+    - Update Your Server Without SSH-ing In: how-to/update-server-without-ssh.md
+  - Button Packs: packs.md
+  - Use Cases:
+    - Overview: use-cases/index.md
+    - Home Server Management: use-cases/home-server.md
+    - Development Workflow: use-cases/dev-workflow.md
+    - Manage a Homelab Fleet: use-cases/homelab.md
+    - Batocera Retro Gaming Box: use-cases/batocera.md
+    - Jellyfin Media Server: use-cases/jellyfin.md
+    - Drive Commandeck from a Local AI: use-cases/local-ai.md
+    - Beginner Guide: use-cases/beginner.md
+  - Pro Features:
+    - Overview: pro.md
+    - SSH & Multi-machine: pro/ssh.md
+    - Multi-select: pro/multiselect.md
+    - Themes: pro/themes.md
+    - Backup & Restore: pro/backup.md
+    - AI Integration (MCP): pro/mcp.md
+    - Activating your license: pro/activating-your-license.md
+    - License & Devices: pro/license-devices.md
+  - Reference:
+    - Main Window: reference/main-window.md
+    - Button Editor: reference/button-editor.md
+    - Preferences: reference/preferences.md
+    - SSH Machines: reference/ssh-machines.md
+    - Execution Profiles: reference/execution-profiles.md
+    - Command Variables: reference/command-variables.md
+    - Security: reference/security.md
+  - Legal:
+    - Terms of Service: legal/terms.md
+    - Privacy Policy: legal/privacy.md
+    - Refund Policy: legal/refund.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/neurocontrarian/commandeck
+
+copyright: >-
+  Copyright &copy; 2026 neurocontrarian &mdash;
+  <a href="/legal/terms/">Terms</a> &middot;
+  <a href="/legal/privacy/">Privacy</a> &middot;
+  <a href="/legal/refund/">Refunds</a>
