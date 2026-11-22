@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{#
+  Custom head additions for SEO and AI discoverability. The schema.org JSON-LD lives in
+  partials/jsonld.html, shared with the standalone home and download templates.
+#}
+{% block extrahead %}
+  {{ super() }}
+
+  {# Google Search Console ownership verification #}
+  <meta name="google-site-verification" content="N3b806AuJbI0C5L-7WzWkkYJ-CLtMSQhXr9Waamvksw" />
+
+  {# Open Graph / Twitter card — each page previews as ITSELF when shared (a how-to posted
+     in a Facebook group or a Discord shows its own title and summary, not the home page's). #}
+  {%- set og_title = page.title ~ " — Commandeck" if page and page.title else config.site_name -%}
+  {%- set og_desc = (page.meta.description if page and page.meta and page.meta.description else config.site_description) -%}
+  <meta property="og:type" content="{{ 'article' if page and ('how-to/' in page.url or 'use-cases/' in page.url) else 'website' }}" />
+  <meta property="og:site_name" content="Commandeck" />
+  <meta property="og:title" content="{{ og_title }}" />
+  <meta property="og:description" content="{{ og_desc }}" />
+  <meta property="og:image" content="https://commandeck.app/assets/og-cover.png" />
+  <meta property="og:url" content="{{ page.canonical_url if page and page.canonical_url else config.site_url }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ og_title }}" />
+  <meta name="twitter:description" content="{{ og_desc }}" />
+  <meta name="twitter:image" content="https://commandeck.app/assets/og-cover.png" />
+
+  {% include "partials/jsonld.html" %}
+
+{% endblock %}
+
+{#
+  Guides (how-to + use cases) are the pages people find on Google. Each ends with a download
+  box, so a reader who just learned the fix is one click from the app. Localized per route.
+#}
+{% block content %}
+  {{ super() }}
+  {%- set u = page.url if page else "" -%}
+  {%- set loc = i18n_page_locale | default("en") -%}
+  {%- set guide = ("how-to/" in u and not u.endswith("how-to/")) or ("use-cases/" in u and not u.endswith("use-cases/")) -%}
+  {%- if guide -%}
+  {%- set C = {
+    "en": ["Turn this into a button", "Commandeck is free to download. Reaching your server over SSH is part of Pro: $29 once, for good — and the 14-day trial asks for no card and no account.", "Download Commandeck — free 14-day Pro trial"],
+    "fr": ["Transformez ça en bouton", "Commandeck se télécharge gratuitement. Atteindre votre serveur en SSH fait partie de Pro : 29 $ une fois, pour de bon — et l'essai de 14 jours ne demande ni carte ni compte.", "Télécharger Commandeck — essai Pro gratuit de 14 jours"],
+    "es": ["Conviértelo en un botón", "Commandeck se descarga gratis. Llegar a tu servidor por SSH forma parte de Pro: 29 $ una vez, para siempre, y la prueba de 14 días no pide tarjeta ni cuenta.", "Descargar Commandeck — prueba Pro gratis de 14 días"],
+    "it": ["Trasformalo in un pulsante", "Commandeck si scarica gratis. Raggiungere il tuo server via SSH fa parte di Pro: 29 $ una volta, per sempre, e la prova di 14 giorni non chiede né carta né account.", "Scarica Commandeck — prova Pro gratuita di 14 giorni"]
+  } -%}
+  {%- set c = C[loc] if loc in C else C["en"] -%}
+  <div class="admonition tip cdk-guide-cta">
+    <p class="admonition-title">{{ c[0] }}</p>
+    <p>{{ c[1] }}</p>
+    <p><a class="md-button md-button--primary" href="/{{ '' if loc == 'en' else loc ~ '/' }}download/">{{ c[2] }}</a></p>
+  </div>
+  {%- endif %}
+{% endblock %}

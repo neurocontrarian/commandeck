@@ -1,0 +1,25 @@
+{#- schema.org SoftwareApplication — included by main.html (wiki) and by the standalone
+    home/download heads, so all three describe the product with the same facts. -#}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Commandeck",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "url": "https://commandeck.app/",
+  "downloadUrl": "https://commandeck.app/download/",
+  "softwareHelp": "https://commandeck.app/quick-start/",
+  "image": "https://commandeck.app/assets/og-cover.png",
+  "description": "Commandeck is the universal remote for Jellyfin, Plex, Docker and your home server: a desktop app for Windows, macOS and Linux that turns the commands you need into buttons. Click once and the command runs on this computer or on your server over SSH, with the result in a window. Free, ready-made button packs. Private by design — nothing leaves your device, no account, no cloud, no telemetry.",
+  "author": {"@type": "Person", "name": "neurocontrarian"},
+  "license": "https://commandeck.app/legal/terms/",
+  "isAccessibleForFree": true,
+  "offers": [
+    {"@type": "Offer", "name": "Commandeck (free)", "price": "0", "priceCurrency": "USD",
+     "description": "Free desktop app: unlimited command buttons on this computer."},
+    {"@type": "Offer", "name": "Commandeck Pro", "price": "29", "priceCurrency": "USD",
+     "description": "Buttons that reach your servers over SSH, several machines at once, themes and backup. $29 one-time, lifetime license. 14-day free trial, no card."}
+  ]
+}
+</script>

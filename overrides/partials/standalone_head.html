@@ -1,0 +1,70 @@
+{#- <head> SEO block for the two standalone templates (home.html, download.html), which do
+    not extend base.html and so get none of Material's head. The caller sets `seo_page`
+    ("home" or "download"). Title, description and social preview are localized at BUILD
+    time per route (/, /fr/, /es/, /it/) so Google sees four distinct pages, not four
+    English copies translated by JavaScript. Other languages (?lang=xx) stay client-side. -#}
+{%- set loc = i18n_page_locale | default('en') -%}
+{%- set S = {
+  "home": {
+    "path": "",
+    "en": {"title": "Commandeck — the universal remote for Jellyfin, Plex, Docker and your home server",
+           "desc": "Jellyfin, Plex, Docker, Pi-hole, your NAS: getting the most out of them used to mean mastering the terminal. Now it is a button you tap — locally or over SSH. Nothing leaves your device. 14-day free trial.",
+           "og": "Commandeck — the universal remote for your apps, wherever they run",
+           "ogd": "Getting the most out of Jellyfin, Plex, Docker or your NAS used to mean mastering the terminal. Now it is a button. Private by design — nothing leaves your device, no account, no cloud."},
+    "fr": {"title": "Commandeck — la télécommande universelle pour Jellyfin, Plex, Docker et votre serveur maison",
+           "desc": "Jellyfin, Plex, Docker, Pi-hole, votre NAS : en tirer le meilleur demandait de maîtriser le terminal. Maintenant, c'est un bouton — sur cet ordinateur ou en SSH. Rien ne quitte votre appareil. Essai gratuit de 14 jours.",
+           "og": "Commandeck — la télécommande universelle de vos applis, où qu'elles tournent",
+           "ogd": "Piloter Jellyfin, Plex, Docker ou votre NAS demandait de maîtriser le terminal. Maintenant, c'est un bouton. Privé : rien ne quitte votre appareil, aucun compte, aucun cloud."},
+    "es": {"title": "Commandeck — el mando universal para Jellyfin, Plex, Docker y tu servidor doméstico",
+           "desc": "Jellyfin, Plex, Docker, Pi-hole, tu NAS: sacarles todo el partido exigía dominar la terminal. Ahora es un botón, en este ordenador o por SSH. Nada sale de tu dispositivo. Prueba gratis de 14 días.",
+           "og": "Commandeck — el mando universal de tus aplicaciones, estén donde estén",
+           "ogd": "Sacar partido a Jellyfin, Plex, Docker o tu NAS exigía dominar la terminal. Ahora es un botón. Privado: nada sale de tu dispositivo, sin cuenta, sin nube."},
+    "it": {"title": "Commandeck — il telecomando universale per Jellyfin, Plex, Docker e il tuo server di casa",
+           "desc": "Jellyfin, Plex, Docker, Pi-hole, il tuo NAS: sfruttarli al meglio voleva dire padroneggiare il terminale. Ora è un pulsante, su questo computer o via SSH. Niente lascia il tuo dispositivo. Prova gratuita di 14 giorni.",
+           "og": "Commandeck — il telecomando universale delle tue app, ovunque girino",
+           "ogd": "Sfruttare Jellyfin, Plex, Docker o il tuo NAS voleva dire padroneggiare il terminale. Ora è un pulsante. Privato: niente lascia il tuo dispositivo, nessun account, nessun cloud."}
+  },
+  "download": {
+    "path": "download/",
+    "en": {"title": "Download Commandeck — Windows, macOS & Linux",
+           "desc": "Download Commandeck for Windows, macOS and Linux. Free local edition, or the Pro desktop edition with a 14-day free trial. No account, no cloud.",
+           "og": "Download Commandeck — Windows, macOS & Linux",
+           "ogd": "The universal remote for your home server. Free edition, or Pro with a 14-day free trial — no card, no account."},
+    "fr": {"title": "Télécharger Commandeck — Windows, macOS et Linux",
+           "desc": "Téléchargez Commandeck pour Windows, macOS et Linux. Édition gratuite en local, ou l'édition Pro avec un essai gratuit de 14 jours. Aucun compte, aucun cloud.",
+           "og": "Télécharger Commandeck — Windows, macOS et Linux",
+           "ogd": "La télécommande universelle de votre serveur maison. Édition gratuite, ou Pro avec un essai gratuit de 14 jours — sans carte, sans compte."},
+    "es": {"title": "Descargar Commandeck — Windows, macOS y Linux",
+           "desc": "Descarga Commandeck para Windows, macOS y Linux. Edición gratuita en local, o la edición Pro con 14 días de prueba gratis. Sin cuenta, sin nube.",
+           "og": "Descargar Commandeck — Windows, macOS y Linux",
+           "ogd": "El mando universal de tu servidor doméstico. Edición gratuita, o Pro con 14 días de prueba gratis, sin tarjeta y sin cuenta."},
+    "it": {"title": "Scarica Commandeck — Windows, macOS e Linux",
+           "desc": "Scarica Commandeck per Windows, macOS e Linux. Edizione gratuita in locale, o l'edizione Pro con 14 giorni di prova gratuita. Nessun account, nessun cloud.",
+           "og": "Scarica Commandeck — Windows, macOS e Linux",
+           "ogd": "Il telecomando universale del tuo server di casa. Edizione gratuita, o Pro con 14 giorni di prova gratuita, senza carta e senza account."}
+  }
+} -%}
+{%- set P = S[seo_page] -%}
+{%- set T = P[loc] if loc in P else P["en"] -%}
+{%- set base = "https://commandeck.app/" -%}
+{%- set here = base ~ ("" if loc == "en" else loc ~ "/") ~ P["path"] -%}
+{#- data-i18n lets i18n.js retitle the tab for the ?lang=xx languages that have no route -#}
+<title data-i18n="{{ 'meta.title' if seo_page == 'home' else 'dl.meta.title' }}">{{ T.title }}</title>
+<meta name="description" content="{{ T.desc }}" />
+<link rel="canonical" href="{{ here }}" />
+{%- for l in ["en", "fr", "es", "it"] %}
+<link rel="alternate" hreflang="{{ l }}" href="{{ base ~ ('' if l == 'en' else l ~ '/') ~ P['path'] }}" />
+{%- endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ base ~ P['path'] }}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Commandeck" />
+<meta property="og:locale" content="{{ {'en': 'en_US', 'fr': 'fr_FR', 'es': 'es_ES', 'it': 'it_IT'}[loc] | default('en_US') }}" />
+<meta property="og:title" content="{{ T.og }}" />
+<meta property="og:description" content="{{ T.ogd }}" />
+<meta property="og:image" content="https://commandeck.app/assets/og-cover.png" />
+<meta property="og:url" content="{{ here }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ T.og }}" />
+<meta name="twitter:description" content="{{ T.ogd }}" />
+<meta name="twitter:image" content="https://commandeck.app/assets/og-cover.png" />
+{% include "partials/jsonld.html" %}
