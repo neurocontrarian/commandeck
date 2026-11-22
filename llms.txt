@@ -1,0 +1,50 @@
+# Commandeck
+
+> Commandeck is the universal remote for Jellyfin, Plex, Docker and your home server: a
+> desktop app for Windows, macOS and Linux that turns the commands you need into buttons.
+> Click a button and the command runs — on this computer, or on your server over SSH — with
+> the result shown in a window. It is built for people who want the benefits of a home server
+> (NAS, mini-PC, Raspberry Pi, Proxmox or Docker box) without having to live in a terminal:
+> instead of hunting again for a command buried in an old chat, a browser tab or a notes file,
+> they press a button. No account, no cloud, no telemetry.
+
+## What it is
+- A grid of buttons, each one running a command you can read and edit.
+- A native desktop app (Windows, macOS, Linux) — not a web panel to host: nothing to install
+  on the server, no container, no exposed port.
+- Free, ready-made **button packs** for common setups, installed in one click from the app.
+- An **Android** app (separate purchase, in closed testing before Google Play) that runs the
+  same buttons on your machines over SSH, on your own network or your own VPN.
+
+## Key facts
+- Platforms: Windows 10/11, macOS (Apple Silicon), Linux (AppImage, x86-64 and ARM64).
+- Free edition: unlimited buttons that run on this computer, all icons and colors, every pack.
+- Pro ($29 one-time, lifetime — buy once, yours for good; 14-day free trial, no card, no
+  account): buttons that reach your servers over SSH (password or key), one button on several
+  machines at once, themes, backup and restore, saved "Run as" shortcuts, and an optional MCP
+  server so an AI assistant can create and run buttons.
+- Android: $19 one-time, paid on Google Play, no subscription.
+- Button packs (all free, digitally signed, each written for one system): Jellyfin (Docker or
+  system install), Plex (Docker or system install), Immich (Docker), Home Assistant (Docker),
+  Home Server Starter (Docker), Batocera, plus Essentials, Hardware, Network and Developer Tools
+  for Linux, macOS and Windows.
+- Privacy: the app contacts nothing on its own. It talks to your own machines, to GitHub when
+  you open the pack gallery or ask it to check for updates, and (desktop Pro only) to the
+  payment provider to check a licence key. No account, no analytics, no crash reporting.
+- Safety: every button shows its command before it runs; anything that restarts or deletes
+  asks for confirmation; the admin (sudo) password is kept in the system keychain.
+
+## Typical use cases
+- Restart Jellyfin or Plex, make Plex look for new films, see why it uses all the CPU.
+- Check disk space on a NAS before it fills up.
+- Update a server, list and restart Docker containers, read their logs.
+- Check a Home Assistant configuration before restarting it.
+- Look after a Batocera retro-gaming box from the desk or the phone.
+
+## Links
+- Website and documentation: https://commandeck.app/
+- Download: https://commandeck.app/download/
+- Button packs: https://commandeck.app/packs/
+- Step-by-step guides: https://commandeck.app/how-to/plex-not-showing-new-movies/
+- Pricing and Pro: https://commandeck.app/pro/
+- Android beta: https://commandeck.app/android-beta/
